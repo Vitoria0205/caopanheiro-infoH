@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cãopanheiro - Localização</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="logo.png" type="image/png">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    <style>
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #efbf6a;
+            /* amarelo */
+        }
+
+        .main-container {
+            min-height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Navbar */
+        .navbar-custom {
+            background-color: #8e2020;
+            /* vermelho */
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.8rem;
+            color: #fff;
+        }
+
+        .navbar-nav .nav-link {
+            color: #fff;
+            margin-left: 1rem;
+            font-weight: 500;
+        }
+
+        .btn-custom {
+            background-color: #efbf6a;
+            color: #8e2020;
+            font-weight: bold;
+            border-radius: 1rem;
+            padding: 0.5rem 1rem;
+            transition: 0.3s;
+        }
+
+        .btn-custom:hover {
+            background-color: #ffd54f;
+            color: #8e2020;
+        }
+
+        /* Section Title */
+        .section-title {
+            text-align: center;
+            padding: 4rem 1rem 2rem 1rem;
+            color: #8e2020;
+            font-weight: bold;
+        }
+
+        /* Localização Card */
+        .location-card {
+            background-color: #fff4cc;
+            border-radius: 1rem;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .location-card img {
+            max-width: 100%;
+            border-radius: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-map {
+            margin-top: 1rem;
+        }
+
+        /* Footer fixo */
+        .footer {
+            background-color: #8e2020;
+            color: #fff;
+            text-align: center;
+            padding: 3rem 1rem;
+            margin-top: auto;
+        }
+
+        .footer p {
+            margin: 0.5rem 0;
+            font-weight: bold;
+        }
+
+        .footer a {
+            color: #efbf6a;
+            text-decoration: none;
+            margin: 0 0.5rem;
+            font-weight: 500;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .social-icons a {
+            color: #efbf6a;
+            margin: 0 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .location-text {
+            text-align: center;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #5a2b2b;
+        }
+
+        .location-text p {
+            margin-bottom: 1.5rem;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div class="main-container">
+
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-custom">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <img src="logo.png" alt="Cãopanheiro" width="40" class="me-2">
+                    CÃOPANHEIRO
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon" style="color: #fff;"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto align-items-center">
+                        <li class="nav-item"><a class="nav-link" href="historia.html">História</a></li>
+                        <li class="nav-item"><a class="nav-link" href="localizacao.html">Localização</a></li>
+                        <li class="nav-item"><a class="btn btn-custom" href="#">Cadastro / Login</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Title -->
+        <div class="section-title">
+            <h2>ONDE TUDO COMEÇOU</h2>
+            <p>Conheça a localização do Campus Muzambinho</p>
+        </div>
+
+        <!-- Location Section -->
+        <div class="container mb-5">
+            <div class="location-card">
+
+                <!-- Carrossel Bootstrap -->
+                <div id="campusCarousel" class="carousel slide mb-4" data-bs-ride="carousel" data-bs-interval="4000">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="fotos/jardinagem.webp" class="d-block w-100 carousel-img" alt="Portaria">
+                            <div class="carousel-caption d-none d-md-block"
+                                style="background: rgba(0,0,0,0.4); border-radius: 0.5rem;">
+                                <h5>Jardinagem</h5>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="fotos/Administração.jfif" class="d-block w-100 carousel-img"
+                                alt="Administração (prédio H)">
+                            <div class="carousel-caption d-none d-md-block"
+                                style="background: rgba(0,0,0,0.4); border-radius: 0.5rem;">
+                                <h5>Administração (prédio H)</h5>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="fotos/biblioteca.jpg" class="d-block w-100 carousel-img" alt="Biblioteca">
+                            <div class="carousel-caption d-none d-md-block"
+                                style="background: rgba(0,0,0,0.4); border-radius: 0.5rem;">
+                                <h5>Biblioteca</h5>
+                            </div>
+                        </div>
+                    
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#campusCarousel"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Anterior</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#campusCarousel"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Próximo</span>
+                    </button>
+                </div>
+
+                <!-- Texto do campus -->
+                <div class="location-text">
+                    <p>
+                        Nosso projeto nasceu no IF Sul de Minas – Campus Muzambinho, uma instituição com mais de 60 anos
+                        de história, referência em ensino, pesquisa e compromisso social.
+                        Foi aqui, entre salas de aula, jardins e corredores, que notamos algo especial: muitos animais
+                        buscavam abrigo, carinho e cuidado.
+                    </p>
+                    <p>
+                        A partir dessa realidade, surgiu a ideia de criar este site, uma ponte entre esses animais e
+                        pessoas dispostas a oferecer um lar cheio de amor.
+                        O campus não é só nosso ponto de partida, é também um símbolo do que acreditamos: educação,
+                        empatia e transformação caminham juntos.
+                    </p>
+                    <p>
+                        Se quiser nos visitar ou conhecer mais de perto, estamos localizados em Muzambinho, Sul de Minas
+                        Gerais.
+                        Estaremos sempre de portas abertas para quem quer ajudar!
+                    </p>
+                </div>
+
+                <a href="https://maps.app.goo.gl/Fs5mLwZQFwSK4KMC6" target="_blank" class="btn btn-custom btn-map">
+                    <img src="fotos/icone para localização .png" alt="">
+                </a>
+
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>"ADOTAR É UM ATO DE AMOR. DÊ UMA NOVA CHANCE, TRANSFORME UMA VIDA"</p>
+            <div class="d-flex justify-content-center mb-2">
+                <a href="#">Adote</a> |
+                <a href="#">Colabore</a>
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

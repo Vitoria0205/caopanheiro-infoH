@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cãopanheiro - Histórias</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="logo.png" type="image/png">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- FontAwesome -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #efbf6a; /* novo amarelo */
+    }
+
+    /* Container principal para ocupar toda altura */
+    .main-container {
+      min-height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Navbar */
+    .navbar-custom {
+      background-color: #8e2020; /* novo vermelho */
+    }
+
+    .navbar-brand {
+      font-weight: bold;
+      font-size: 1.8rem;
+      color: #fff;
+    }
+
+    .navbar-nav .nav-link {
+      color: #fff;
+      margin-left: 1rem;
+      font-weight: 500;
+    }
+
+    .btn-custom {
+      background-color: #efbf6a;
+      color: #8e2020;
+      font-weight: bold;
+      border-radius: 1rem;
+      padding: 0.5rem 1rem;
+      transition: 0.3s;
+    }
+
+    .btn-custom:hover {
+      background-color: #ffd54f;
+      color: #8e2020;
+    }
+
+    /* Section Title */
+    .section-title {
+      text-align: center;
+      padding: 4rem 1rem 2rem 1rem;
+      color: #8e2020;
+      font-weight: bold;
+    }
+
+    /* História Card */
+    .story-card {
+      background-color: #fff4cc;
+      border-radius: 1rem;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .story-card img {
+      width: 150px;
+      border-radius: 1rem;
+    }
+
+    .story-card h4 {
+      color: #8e2020;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+
+    .story-card p {
+      margin: 0;
+      text-align: justify;
+    }
+
+    /* Footer fixo */
+    .footer {
+      background-color: #8e2020;
+      color: #fff;
+      text-align: center;
+      padding: 3rem 1rem;
+      margin-top: auto;
+    }
+
+    .footer p {
+      margin: 0.5rem 0;
+      font-weight: bold;
+    }
+
+    .footer a {
+      color: #efbf6a;
+      text-decoration: none;
+      margin: 0 0.5rem;
+      font-weight: 500;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    .social-icons a {
+      color: #efbf6a;
+      margin: 0 0.5rem;
+      font-size: 1.2rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="main-container">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-custom">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <img src="logo.png" alt="Cãopanheiro" width="40" class="me-2">
+          CÃOPANHEIRO
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon" style="color: #fff;"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto align-items-center">
+            <li class="nav-item"><a class="nav-link" href="historia.html">História</a></li>
+            <li class="nav-item"><a class="nav-link" href="localizacao.html">Localização</a></li>
+            <li class="nav-item"><a class="btn btn-custom" href="#">Cadastro / Login</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Title -->
+    <div class="section-title">
+      <h2>CÃES JÁ ADOTADOS</h2>
+      <p>Histórias emocionantes de cães que encontraram um novo lar</p>
+    </div>
+
+    <!-- Stories Section -->
+    <div class="container mb-5">
+      <div class="story-card">
+        <img src="fotos/tigrao.jpg" alt="Manteguinha">
+        <div>
+          <h4>A História do Tigrão</h4>
+          <p>Tigrão viveu um tempo no campus e logo conquistou a todos com seu jeito dócil. 
+              Ele era muito bonzinho, castrado, tinha 4 anos e era de porte grande. 
+              Porém, em certo momento acabou mordendo a filha de uma professora e precisou ser adotado para maior segurança.  
+              Foi então que uma ex-aluna do IF decidiu acolhê-lo, oferecendo-lhe um novo lar cheio de amor e cuidado.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>"ADOTAR É UM ATO DE AMOR. DÊ UMA NOVA CHANCE, TRANSFORME UMA VIDA"</p>
+      <div class="d-flex justify-content-center mb-2">
+        <a href="#">Adote</a> |
+        <a href="#">Colabore</a>
+      </div>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
