@@ -13,132 +13,342 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- FontAwesome -->
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
 
   <style>
-    html, body {
-      height: 100%;
+    :root {
+      --yellow: #EFBF6A;
+      --red: #8E2020;
+      --white: #fff;
+      --light-yellow: #fff4cc;
+      --dark-red: #6b1818;
+      --shadow: rgba(0, 0, 0, 0.1);
+      --gradient: linear-gradient(135deg, var(--yellow) 0%, #ffd54f 100%);
+    }
+
+    * {
       margin: 0;
       padding: 0;
-      font-family: 'Arial', sans-serif;
-      background-color: #efbf6a; /* novo amarelo */
+      box-sizing: border-box;
     }
 
-    /* Container principal para ocupar toda altura */
-    .main-container {
-      min-height: 100%;
+    body {
+      font-family: 'Poppins', Arial, sans-serif;
+      background: var(--gradient);
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
+      color: #333;
     }
 
-    /* Navbar */
+    /* ====== NAVBAR ====== */
     .navbar-custom {
-      background-color: #8e2020; /* novo vermelho */
+      background-color: var(--red);
+      padding: 1rem 0;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     }
 
     .navbar-brand {
-      font-weight: bold;
+      font-weight: 800;
       font-size: 1.8rem;
-      color: #fff;
+      color: #fff !important;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      transition: transform 0.3s ease;
+    }
+
+    .navbar-brand:hover {
+      transform: scale(1.05);
+    }
+
+    .navbar-brand img {
+      border-radius: 50%;
+      margin-right: 0.5rem;
+      transition: transform 0.3s ease;
+    }
+
+    .navbar-brand:hover img {
+      transform: rotate(360deg);
     }
 
     .navbar-nav .nav-link {
-      color: #fff;
+      color: #fff !important;
       margin-left: 1rem;
       font-weight: 500;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .navbar-nav .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -5px;
+      left: 50%;
+      background-color: var(--yellow);
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+    }
+
+    .navbar-nav .nav-link:hover::after {
+      width: 100%;
     }
 
     .btn-custom {
-      background-color: #efbf6a;
-      color: #8e2020;
-      font-weight: bold;
-      border-radius: 1rem;
-      padding: 0.5rem 1rem;
-      transition: 0.3s;
+      background: var(--gradient);
+      color: var(--red);
+      font-weight: 700;
+      border-radius: 25px;
+      padding: 0.6rem 1.5rem;
+      border: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(239, 191, 106, 0.3);
     }
 
     .btn-custom:hover {
-      background-color: #ffd54f;
-      color: #8e2020;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(239, 191, 106, 0.4);
+      color: var(--red);
     }
 
-    /* Section Title */
+    /* ====== MAIN CONTENT ====== */
+    .main-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 3rem 1rem 2rem;
+      min-height: calc(100vh - 200px);
+    }
+
     .section-title {
       text-align: center;
-      padding: 4rem 1rem 2rem 1rem;
-      color: #8e2020;
-      font-weight: bold;
+      margin-bottom: 3rem;
+      animation: fadeInUp 0.8s ease-out;
     }
 
-    /* História Card */
-    .story-card {
-      background-color: #fff4cc;
-      border-radius: 1rem;
-      padding: 2rem;
-      margin-bottom: 2rem;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-    }
-
-    .story-card img {
-      width: 150px;
-      border-radius: 1rem;
-    }
-
-    .story-card h4 {
-      color: #8e2020;
-      font-weight: bold;
+    .section-title h2 {
+      color: var(--red);
+      font-weight: 800;
+      font-size: 2.5rem;
       margin-bottom: 1rem;
     }
 
-    .story-card p {
-      margin: 0;
-      text-align: justify;
+    .section-title p {
+      color: #666;
+      font-weight: 400;
+      font-size: 1.1rem;
     }
 
-    /* Footer fixo */
+    .heart-icon {
+      width: 60px;
+      height: 60px;
+      background: var(--gradient);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      box-shadow: 0 10px 30px rgba(239, 191, 106, 0.3);
+    }
+
+    .heart-icon i {
+      font-size: 1.8rem;
+      color: var(--red);
+    }
+
+    /* ====== STORY CARD ====== */
+    .story-container {
+      width: 100%;
+      max-width: 900px;
+      margin-bottom: 2rem;
+    }
+
+    .story-card {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 2.5rem;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      display: flex;
+      align-items: flex-start;
+      gap: 2rem;
+      animation: slideUp 0.6s ease-out;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .story-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .story-card img {
+      width: 160px;
+      height: 160px;
+      border-radius: 16px;
+      object-fit: cover;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .story-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .story-content {
+      flex: 1;
+    }
+
+    .story-content h4 {
+      color: var(--red);
+      font-weight: 700;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      line-height: 1.3;
+    }
+
+    .story-content p {
+      margin: 0;
+      text-align: justify;
+      line-height: 1.6;
+      color: #444;
+      font-size: 1rem;
+    }
+
+    /* Responsividade para cards */
+    @media (max-width: 768px) {
+      .story-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem;
+      }
+
+      .story-card img {
+        width: 140px;
+        height: 140px;
+        margin-bottom: 1.5rem;
+      }
+
+      .section-title h2 {
+        font-size: 2rem;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .story-card {
+        padding: 1.5rem;
+      }
+
+      .story-card img {
+        width: 120px;
+        height: 120px;
+      }
+
+      .section-title h2 {
+        font-size: 1.8rem;
+      }
+    }
+
+    /* ====== FOOTER ====== */
     .footer {
-      background-color: #8e2020;
+      background: linear-gradient(135deg, var(--red) 0%, var(--dark-red) 100%);
       color: #fff;
       text-align: center;
-      padding: 3rem 1rem;
+      padding: 2.5rem 1rem;
       margin-top: auto;
     }
 
     .footer p {
       margin: 0.5rem 0;
-      font-weight: bold;
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+
+    .footer-links {
+      margin: 1rem 0;
     }
 
     .footer a {
-      color: #efbf6a;
+      color: var(--yellow);
       text-decoration: none;
-      margin: 0 0.5rem;
+      margin: 0 0.8rem;
       font-weight: 500;
+      transition: all 0.3s ease;
     }
 
     .footer a:hover {
+      color: #ffd54f;
       text-decoration: underline;
     }
 
+    .social-icons {
+      margin-top: 1rem;
+    }
+
     .social-icons a {
-      color: #efbf6a;
-      margin: 0 0.5rem;
-      font-size: 1.2rem;
+      color: var(--yellow);
+      margin: 0 0.8rem;
+      font-size: 1.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      color: #ffd54f;
+      transform: translateY(-2px);
+    }
+
+    /* ====== ANIMATIONS ====== */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ====== RESPONSIVE ====== */
+    @media (max-width: 768px) {
+      .navbar-brand {
+        font-size: 1.5rem;
+      }
+
+      .main-content {
+        padding: 2rem 1rem;
+      }
     }
   </style>
 </head>
 
 <body>
-  <div class="main-container">
+  <div class="main-container" style="display: flex; flex-direction: column; min-height: 100vh;">
 
-    <!-- Navbar -->
+    <!-- 🔹 MENU DE NAVEGAÇÃO ESTILIZADO -->
     <nav class="navbar navbar-expand-lg navbar-custom">
       <div class="container">
         <a class="navbar-brand" href="index.html">
-          <img src="logo.png" alt="Cãopanheiro" width="40" class="me-2">
+          <img src="logo.png" alt="Cãopanheiro" width="40" height="40">
           CÃOPANHEIRO
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -149,42 +359,58 @@
           <ul class="navbar-nav ms-auto align-items-center">
             <li class="nav-item"><a class="nav-link" href="historia.html">História</a></li>
             <li class="nav-item"><a class="nav-link" href="localizacao.html">Localização</a></li>
-            <li class="nav-item"><a class="btn btn-custom" href="#">Cadastro / Login</a></li>
+            <li class="nav-item ms-3"><a class="btn btn-custom" href="cadastro.html">Cadastro / Login</a></li>
           </ul>
         </div>
       </div>
     </nav>
 
-    <!-- Title -->
-    <div class="section-title">
-      <h2>CÃES JÁ ADOTADOS</h2>
-      <p>Histórias emocionantes de cães que encontraram um novo lar</p>
-    </div>
+    <!-- ====== MAIN CONTENT ====== -->
+    <div class="main-content">
+      <div class="section-title">
+        <div class="heart-icon">
+          <i class="fas fa-paw"></i>
+        </div>
+        <h2>CÃES JÁ ADOTADOS</h2>
+        <p>Histórias emocionantes de cães que encontraram um novo lar</p>
+      </div>
 
-    <!-- Stories Section -->
-    <div class="container mb-5">
-      <div class="story-card">
-        <img src="fotos/tigrao.jpg" alt="Manteguinha">
-        <div>
-          <h4>A História do Tigrão</h4>
-          <p>Tigrão viveu um tempo no campus e logo conquistou a todos com seu jeito dócil. 
-              Ele era muito bonzinho, castrado, tinha 4 anos e era de porte grande. 
-              Porém, em certo momento acabou mordendo a filha de uma professora e precisou ser adotado para maior segurança.  
-              Foi então que uma ex-aluna do IF decidiu acolhê-lo, oferecendo-lhe um novo lar cheio de amor e cuidado.</p>
+      <div class="story-container">
+        <div class="story-card">
+          <img src="fotos/tigrao.jpg" alt="Tigrão, cão adotado após viver no campus do IF" loading="lazy">
+          <div class="story-content">
+            <h4>A História do Tigrão</h4>
+            <p>Tigrão viveu um tempo no campus e logo conquistou a todos com seu jeito dócil. Ele era muito bonzinho, castrado, tinha 4 anos e era de porte grande. Porém, em certo momento acabou mordendo a filha de uma professora e precisou ser adotado para maior segurança. Foi então que uma ex-aluna do IF decidiu acolhê-lo, oferecendo-lhe um novo lar cheio de amor e cuidado.</p>
+          </div>
         </div>
       </div>
+
+      <!-- Você pode adicionar mais cards aqui -->
+      <!-- Exemplo:
+      <div class="story-container">
+        <div class="story-card">
+          <img src="fotos/outro.jpg" alt="Outro cão">
+          <div class="story-content">
+            <h4>Título da História</h4>
+            <p>Texto da história...</p>
+          </div>
+        </div>
+      </div>
+      -->
+
     </div>
 
-    <!-- Footer -->
+    <!-- ====== FOOTER ====== -->
     <footer class="footer">
       <p>"ADOTAR É UM ATO DE AMOR. DÊ UMA NOVA CHANCE, TRANSFORME UMA VIDA"</p>
-      <div class="d-flex justify-content-center mb-2">
-        <a href="#">Adote</a> |
-        <a href="#">Colabore</a>
+      <div class="footer-links">
+        <a href="#" title="Adote um cão">Adote</a>
+        <span>|</span>
+        <a href="#" title="Colabore com o projeto">Colabore</a>
       </div>
       <div class="social-icons">
-        <a href="#"><i class="fab fa-facebook"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
       </div>
     </footer>
 
@@ -192,6 +418,17 @@
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Opcional: adicione animações JS se quiser -->
+  <script>
+    // Animação simples ao carregar
+    document.addEventListener('DOMContentLoaded', function () {
+      const cards = document.querySelectorAll('.story-card');
+      cards.forEach((card, index) => {
+        card.style.animationDelay = `${index * 0.2}s`;
+      });
+    });
+  </script>
 </body>
 
 </html>
