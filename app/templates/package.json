@@ -1,0 +1,15 @@
+{
+  "name": "caopanheiro",
+  "version": "1.0.0",
+  "description": "Projeto de cadastro de usuários para Cãopanheiro",
+  "main": "index.html",
+  "scripts": {
+    "start": "json-server --watch db.json --port 3000"
+  },
+  "keywords": ["cadastro", "adoção", "cães"],
+  "author": "Seu Nome",
+  "license": "MIT",
+  "devDependencies": {
+    "json-server": "^0.17.0"
+  }
+}

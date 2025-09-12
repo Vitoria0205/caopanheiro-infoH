@@ -223,86 +223,118 @@
       font-size: 1rem;
     }
 
-    /* Responsividade para cards */
-    @media (max-width: 768px) {
-      .story-card {
-        flex-direction: column;
-        text-align: center;
-        padding: 2rem;
-      }
 
-      .story-card img {
-        width: 140px;
-        height: 140px;
-        margin-bottom: 1.5rem;
-      }
-
-      .section-title h2 {
-        font-size: 2rem;
-      }
-    }
-
-    @media (max-width: 576px) {
-      .story-card {
-        padding: 1.5rem;
-      }
-
-      .story-card img {
-        width: 120px;
-        height: 120px;
-      }
-
-      .section-title h2 {
-        font-size: 1.8rem;
-      }
-    }
-
-    /* ====== FOOTER ====== */
+    /* ====== RODAPÉ VERMELHO LINDO ====== */
     .footer {
-      background: linear-gradient(135deg, var(--red) 0%, var(--dark-red) 100%);
+      background-color: var(--red);
       color: #fff;
-      text-align: center;
-      padding: 2.5rem 1rem;
-      margin-top: auto;
+      padding: 0;
+      margin-top: 2rem;
+      position: relative;
+      overflow: hidden;
     }
 
-    .footer p {
-      margin: 0.5rem 0;
-      font-weight: 600;
-      font-size: 1.1rem;
+    .footer-content {
+      padding: 3rem 1.5rem;
     }
 
-    .footer-links {
-      margin: 1rem 0;
+    .footer-divider-thin {
+      height: 2px;
+      background: linear-gradient(to right, transparent, var(--yellow), transparent);
+      margin: 2rem 0;
     }
 
-    .footer a {
-      color: var(--yellow);
-      text-decoration: none;
-      margin: 0 0.8rem;
-      font-weight: 500;
-      transition: all 0.3s ease;
+    .footer-brand {
+      font-weight: 800;
+      font-size: 1.6rem;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
 
-    .footer a:hover {
-      color: #ffd54f;
-      text-decoration: underline;
-    }
-
-    .social-icons {
-      margin-top: 1rem;
-    }
-
-    .social-icons a {
-      color: var(--yellow);
-      margin: 0 0.8rem;
+    .footer-brand i {
       font-size: 1.5rem;
-      transition: all 0.3s ease;
     }
 
-    .social-icons a:hover {
+    .footer-slogan {
+      font-style: italic;
       color: #ffd54f;
-      transform: translateY(-2px);
+      font-size: 1rem;
+      line-height: 1.5;
+      margin-top: 0.5rem;
+    }
+
+    .footer-action {
+      padding: 1.5rem;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      transition: transform 0.3s ease, background 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      cursor: pointer;
+    }
+
+    .footer-action:hover {
+      transform: translateY(-5px);
+      background: rgba(255, 255, 255, 0.15);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .icon-circle {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+      color: #fff;
+      font-size: 1.3rem;
+      background: var(--yellow);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .footer-action h5 {
+      font-weight: 700;
+      color: #fff;
+      margin: 0.5rem 0 0.3rem;
+      font-size: 1.2rem;
+    }
+
+    .footer-action p {
+      color: #ffd54f;
+      font-size: 0.95rem;
+      margin: 0;
+      font-weight: 500;
+    }
+
+    .social-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: var(--yellow);
+      color: var(--red);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      margin: 0 8px;
+    }
+
+    .social-icon:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .copyright {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.9rem;
     }
 
     /* ====== ANIMATIONS ====== */
@@ -311,6 +343,7 @@
         opacity: 0;
         transform: translateY(30px);
       }
+
       to {
         opacity: 1;
         transform: translateY(0);
@@ -322,13 +355,13 @@
         opacity: 0;
         transform: translateY(30px);
       }
+
       to {
         opacity: 1;
         transform: translateY(0);
       }
     }
 
-    /* ====== RESPONSIVE ====== */
     @media (max-width: 768px) {
       .navbar-brand {
         font-size: 1.5rem;
@@ -337,6 +370,10 @@
       .main-content {
         padding: 2rem 1rem;
       }
+
+      .footer-buttons {
+        flex-direction: column;
+      }
     }
   </style>
 </head>
@@ -344,7 +381,7 @@
 <body>
   <div class="main-container" style="display: flex; flex-direction: column; min-height: 100vh;">
 
-    <!-- 🔹 MENU DE NAVEGAÇÃO ESTILIZADO -->
+    <!-- MENU DE NAVEGAÇÃO -->
     <nav class="navbar navbar-expand-lg navbar-custom">
       <div class="container">
         <a class="navbar-brand" href="index.html">
@@ -365,7 +402,7 @@
       </div>
     </nav>
 
-    <!-- ====== MAIN CONTENT ====== -->
+    <!-- MAIN CONTENT -->
     <div class="main-content">
       <div class="section-title">
         <div class="heart-icon">
@@ -380,55 +417,128 @@
           <img src="fotos/tigrao.jpg" alt="Tigrão, cão adotado após viver no campus do IF" loading="lazy">
           <div class="story-content">
             <h4>A História do Tigrão</h4>
-            <p>Tigrão viveu um tempo no campus e logo conquistou a todos com seu jeito dócil. Ele era muito bonzinho, castrado, tinha 4 anos e era de porte grande. Porém, em certo momento acabou mordendo a filha de uma professora e precisou ser adotado para maior segurança. Foi então que uma ex-aluna do IF decidiu acolhê-lo, oferecendo-lhe um novo lar cheio de amor e cuidado.</p>
+            <p>Tigrão viveu um tempo no campus e logo conquistou a todos com seu jeito dócil. Ele era muito bonzinho,
+              castrado, tinha 4 anos e era de porte grande. Porém, em certo momento acabou mordendo a filha de uma
+              professora e precisou ser adotado para maior segurança. Foi então que uma ex-aluna do IF decidiu
+              acolhê-lo, oferecendo-lhe um novo lar cheio de amor e cuidado.</p>
           </div>
         </div>
       </div>
-
-      <!-- Você pode adicionar mais cards aqui -->
-      <!-- Exemplo:
-      <div class="story-container">
-        <div class="story-card">
-          <img src="fotos/outro.jpg" alt="Outro cão">
-          <div class="story-content">
-            <h4>Título da História</h4>
-            <p>Texto da história...</p>
-          </div>
-        </div>
-      </div>
-      -->
 
     </div>
 
-    <!-- ====== FOOTER ====== -->
+    <!-- ====== RODAPÉ (VERMELHO) ====== -->
     <footer class="footer">
-      <p>"ADOTAR É UM ATO DE AMOR. DÊ UMA NOVA CHANCE, TRANSFORME UMA VIDA"</p>
-      <div class="footer-links">
-        <a href="#" title="Adote um cão">Adote</a>
-        <span>|</span>
-        <a href="#" title="Colabore com o projeto">Colabore</a>
-      </div>
-      <div class="social-icons">
-        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-      </div>
+      <div class="footer-content">
+        <div class="container">
+          <!-- Linha divisória -->
+          <div class="footer-divider-thin"></div>
+
+          <!-- Rodapé inferior: Logo, colunas, redes sociais -->
+          <div class="row align-items-center">
+            <!-- Logo -->
+            <div class="col-md-4 text-center text-md-start mb-4 mb-md-0">
+              <div class="footer-brand">
+                <i class="fas fa-paw"></i>
+                <span>CÃOPANHEIRO</span>
+              </div>
+              <p class="footer-slogan">
+                “Adotar é um ato de amor, dê uma nova chance, transforme uma vida.”
+              </p>
+            </div>
+
+            <!-- Coluna: ADOTE -->
+            <div class="col-md-4 text-center mb-4 mb-md-0">
+              <div class="footer-action" role="button" tabindex="0" data-target="index.html#cachorros"
+                aria-label="Ir para adote">
+                <div class="icon-circle">
+                  <i class="fas fa-heart"></i>
+                </div>
+                <h5>ADOTE</h5>
+                <p>Adote com responsabilidade</p>
+              </div>
+            </div>
+
+            <!-- Coluna: COLABORE -->
+            <div class="col-md-4 text-center">
+              <div class="footer-action" role="button" tabindex="0" data-target="index.html#doar"
+                aria-label="Ir para doações">
+                <div class="icon-circle">
+                  <i class="fas fa-hand-holding-heart"></i>
+                </div>
+                <h5>COLABORE</h5>
+                <p>Doe qualquer valor</p>
+              </div>
+            </div>
+
+
+            <!-- Redes sociais -->
+            <div class="text-center mt-4">
+              <div class="d-flex justify-content-center gap-3">
+                <a href="#" class="social-icon" aria-label="Facebook">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="social-icon" aria-label="Instagram">
+                  <i class="fab fa-instagram"></i>
+                </a>
+              </div>
+              <p class="copyright">
+                © 2025 Cãopanheiro. Todos os direitos reservados. Juntos por um mundo melhor para os animais.
+              </p>
+            </div>
+          </div>
+        </div>
     </footer>
 
-  </div>
-
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Opcional: adicione animações JS se quiser -->
-  <script>
-    // Animação simples ao carregar
-    document.addEventListener('DOMContentLoaded', function () {
-      const cards = document.querySelectorAll('.story-card');
-      cards.forEach((card, index) => {
-        card.style.animationDelay = `${index * 0.2}s`;
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const cards = document.querySelectorAll('.story-card');
+        cards.forEach((card, index) => {
+          card.style.animationDelay = `${index * 0.2}s`;
+        });
       });
-    });
-  </script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const footerActions = document.querySelectorAll('.footer-action');
+
+        footerActions.forEach(action => {
+          const target = action.dataset.target;
+          if (!target) return;
+
+          action.addEventListener('click', function () {
+            // Se o link tiver hash (#), abre a página e rola até a seção
+            const [page, hash] = target.split('#');
+
+            if (window.location.pathname.endsWith(page) || page === "") {
+              // Mesma página: rolar suavemente
+              if (hash) {
+                const section = document.getElementById(hash);
+                if (section) {
+                  window.scrollTo({
+                    top: section.offsetTop - 80,
+                    behavior: 'smooth'
+                  });
+                }
+              }
+            } else {
+              // Página diferente: redirecionar com hash
+              window.location.href = target;
+            }
+          });
+
+          action.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              action.click();
+            }
+          });
+        });
+      });
+
+    </script>
+
+
 </body>
 
 </html>
