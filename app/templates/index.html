@@ -1,945 +1,1034 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cãopanheiro</title>
 
-    <!-- Favicon -->
-    <link rel="icon" href="logo.png" type="image/png">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cãopanheiro</title>
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Favicon -->
+  <link rel="icon" href="logo.png" type="image/png">
 
-    <!-- Slick Carousel -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <!-- Slick Carousel -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
-      rel="stylesheet">
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
-    <style>
-      :root {
-        --yellow: #EFBF6A;
-        --red: #8E2020;
-        --white: #fff;
-        --light-yellow: #fff4cc;
-        --dark-red: #6b1818;
-        --gradient: linear-gradient(135deg, var(--yellow) 0%, #ffd54f 100%);
-      }
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
 
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
+  <style>
+    :root {
+      --yellow: #EFBF6A;
+      --red: #8E2020;
+      --white: #fff;
+      --light-yellow: #fff4cc;
+      --dark-red: #6b1818;
+      --gradient: linear-gradient(135deg, var(--yellow) 0%, #ffd54f 100%);
+    }
 
-      body {
-        font-family: 'Poppins', Arial, sans-serif;
-        background: var(--red);
-        color: #222;
-        overflow-x: hidden;
-      }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-      /* ====== ROLAGEM SUAVE E EVITAR QUE O TOPO FIQUE ESCONDIDO ====== */
-      html {
-        scroll-behavior: smooth;
-      }
-      #cachorros,
-      #doar {
-        scroll-margin-top: 80px; /* Evita ficar atrás do navbar */
-      }
+    body {
+      font-family: 'Poppins', Arial, sans-serif;
+      background: var(--red);
+      color: #222;
+      overflow-x: hidden;
+    }
 
-      /* ====== NAVBAR ====== */
-      .navbar-custom {
-        background-color: var(--red);
-        padding: 1rem 0;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      }
+    /* ====== ROLAGEM SUAVE E EVITAR QUE O TOPO FIQUE ESCONDIDO ====== */
+    html {
+      scroll-behavior: smooth;
+    }
 
-      .navbar-brand {
-        font-weight: 800;
-        font-size: 1.8rem;
-        color: #fff !important;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        transition: transform 0.3s ease;
-      }
+    #cachorros,
+    #doar {
+      scroll-margin-top: 80px;
+      /* Evita ficar atrás do navbar */
+    }
 
-      .navbar-brand:hover {
-        transform: scale(1.05);
-      }
+    /* ====== NAVBAR ====== */
+    .navbar-custom {
+      background-color: var(--red);
+      padding: 1rem 0;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
 
-      .navbar-brand img {
-        border-radius: 50%;
-        margin-right: 0.5rem;
-        transition: transform 0.3s ease;
-      }
+    .navbar-brand {
+      font-weight: 800;
+      font-size: 1.8rem;
+      color: #fff !important;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      transition: transform 0.3s ease;
+    }
 
-      .navbar-brand:hover img {
-        transform: rotate(360deg);
-      }
+    .navbar-brand:hover {
+      transform: scale(1.05);
+    }
 
-      .navbar-nav .nav-link {
-        color: #fff !important;
-        margin-left: 1rem;
-        font-weight: 500;
-        position: relative;
-        transition: all 0.3s ease;
-      }
+    .navbar-brand img {
+      border-radius: 50%;
+      margin-right: 0.5rem;
+      transition: transform 0.3s ease;
+    }
 
-      .navbar-nav .nav-link::after {
-        content: '';
-        position: absolute;
-        width: 0;
-        height: 2px;
-        bottom: -5px;
-        left: 50%;
-        background-color: var(--yellow);
-        transition: all 0.3s ease;
-        transform: translateX(-50%);
-      }
+    .navbar-brand:hover img {
+      transform: rotate(360deg);
+    }
 
-      .navbar-nav .nav-link:hover::after {
-        width: 100%;
-      }
+    .navbar-nav .nav-link {
+      color: #fff !important;
+      margin-left: 1rem;
+      font-weight: 500;
+      position: relative;
+      transition: all 0.3s ease;
+    }
 
-      .btn-custom {
-        background: var(--gradient);
-        color: var(--red);
-        font-weight: 700;
-        border-radius: 25px;
-        padding: 0.6rem 1.5rem;
-        border: none;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 15px rgba(239, 191, 106, 0.3);
-      }
+    .navbar-nav .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -5px;
+      left: 50%;
+      background-color: var(--yellow);
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+    }
 
-      .btn-custom:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(239, 191, 106, 0.4);
-        color: var(--red);
-      }
+    .navbar-nav .nav-link:hover::after {
+      width: 100%;
+    }
 
-      /* ====== CARROSSEL ====== */
-      .carousel-wrap {
-        background: var(--yellow);
-        width: 100%;
-        padding: 10px 0;
-      }
+    .btn-custom {
+      background: var(--gradient);
+      color: var(--red);
+      font-weight: 700;
+      border-radius: 25px;
+      padding: 0.6rem 1.5rem;
+      border: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(239, 191, 106, 0.3);
+    }
 
+    .btn-custom:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(239, 191, 106, 0.4);
+      color: var(--red);
+    }
+
+    .navbar-brand img {
+      width: 45px;
+      height: 45px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-right: 10px;
+      background: #fff;
+      /* fundo branco pra destacar */
+      padding: 3px;
+      /* borda interna */
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+      /* sombra leve */
+      transition: transform 0.3s ease;
+    }
+
+
+    /* ====== CARROSSEL ====== */
+    .carousel-wrap {
+      background: var(--yellow);
+      width: 100%;
+      padding: 10px 0;
+    }
+
+    .hero-slide {
+      height: 350px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 36px;
+      box-sizing: border-box;
+      color: #fff;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+      border-radius: 20px;
+      margin: 0 20px;
+      backdrop-filter: blur(5px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .hero-slide .text {
+      max-width: 60%;
+    }
+
+    .hero-slide h2 {
+      margin: 0 0 15px 0;
+      font-size: 2.5rem;
+      color: var(--red);
+      font-weight: 800;
+      line-height: 1.2;
+    }
+
+    .hero-slide p {
+      margin: 0;
+      font-size: 1.2rem;
+      line-height: 1.6;
+      font-weight: 500;
+    }
+
+    .hero-dog {
+      width: 200px;
+      height: auto;
+      max-width: 100%;
+      object-fit: contain;
+      filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2));
+    }
+
+    .slick-prev,
+    .slick-next {
+      z-index: 10;
+    }
+
+    .slick-prev:before,
+    .slick-next:before {
+      color: var(--red);
+      font-size: 36px;
+      opacity: 0.8;
+    }
+
+    .slick-dots li button:before {
+      color: var(--red);
+      font-size: 12px;
+      opacity: 0.7;
+    }
+
+    .slick-dots li.slick-active button:before {
+      opacity: 1;
+      color: var(--red);
+    }
+
+    /* ====== SEÇÃO CÃES DISPONÍVEIS ====== */
+    .dogs-section {
+      background: var(--red);
+      padding: 60px 0 70px;
+      text-align: center;
+    }
+
+    .dogs-section h2 {
+      color: #fff;
+      font-size: 2.5rem;
+      margin: 0 0 40px 0;
+      font-weight: 800;
+      position: relative;
+      display: inline-block;
+    }
+
+    .dogs-section h2::after {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: var(--yellow);
+      border-radius: 2px;
+    }
+
+    .dogs-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      width: min(1200px, 94%);
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .dog-card {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(5px);
+      border-radius: 22px;
+      padding: 24px 18px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      cursor: pointer;
+    }
+
+    .dog-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .dog-card img {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      background: #fff;
+      border-radius: 12px;
+      margin-bottom: 18px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .dog-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .dog-card p {
+      margin: 0;
+      color: var(--red);
+      font-weight: 800;
+      font-size: 1.3rem;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Responsividade */
+    @media (max-width: 1200px) {
       .hero-slide {
-        height: 350px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 36px;
-        box-sizing: border-box;
-        color: #fff;
-        background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
-        border-radius: 20px;
-        margin: 0 20px;
-        backdrop-filter: blur(5px);
-        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-      }
-
-      .hero-slide .text {
-        max-width: 60%;
+        padding: 24px;
+        height: 320px;
       }
 
       .hero-slide h2 {
-        margin: 0 0 15px 0;
-        font-size: 2.5rem;
-        color: var(--red);
-        font-weight: 800;
-        line-height: 1.2;
-      }
-
-      .hero-slide p {
-        margin: 0;
-        font-size: 1.2rem;
-        line-height: 1.6;
-        font-weight: 500;
+        font-size: 2.2rem;
       }
 
       .hero-dog {
-        width: 200px;
-        height: auto;
+        width: 180px;
+      }
+    }
+
+    @media (max-width: 992px) {
+      .dogs-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero-slide .text {
         max-width: 100%;
-        object-fit: contain;
-        filter: drop-shadow(0 10px 20px rgba(0,0,0,0.2));
-      }
-
-      .slick-prev,
-      .slick-next {
-        z-index: 10;
-      }
-
-      .slick-prev:before,
-      .slick-next:before {
-        color: var(--red);
-        font-size: 36px;
-        opacity: 0.8;
-      }
-
-      .slick-dots li button:before {
-        color: var(--red);
-        font-size: 12px;
-        opacity: 0.7;
-      }
-
-      .slick-dots li.slick-active button:before {
-        opacity: 1;
-        color: var(--red);
-      }
-
-      /* ====== SEÇÃO CÃES DISPONÍVEIS ====== */
-      .dogs-section {
-        background: var(--red);
-        padding: 60px 0 70px;
         text-align: center;
       }
 
-      .dogs-section h2 {
-        color: #fff;
-        font-size: 2.5rem;
-        margin: 0 0 40px 0;
-        font-weight: 800;
-        position: relative;
-        display: inline-block;
+      .hero-slide {
+        flex-direction: column;
+        text-align: center;
+        gap: 24px;
+        height: auto;
+        min-height: 350px;
+        padding: 40px 24px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero-slide h2 {
+        font-size: 2rem;
       }
 
-      .dogs-section h2::after {
-        content: '';
-        position: absolute;
-        bottom: -15px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 80px;
-        height: 4px;
-        background: var(--yellow);
-        border-radius: 2px;
+      .hero-slide p {
+        font-size: 1.1rem;
       }
 
       .dogs-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 30px;
-        width: min(1200px, 94%);
-        margin: 0 auto;
-        padding: 0 20px;
+        grid-template-columns: 1fr;
+        padding: 0 15px;
       }
 
-      .dog-card {
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(5px);
-        border-radius: 22px;
-        padding: 24px 18px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        transition: all 0.3s ease;
-        border: 1px solid rgba(255, 255, 255, 0.3);
-        cursor: pointer;
+      .dogs-section h2 {
+        font-size: 2.2rem;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .hero-slide {
+        padding: 30px 20px;
       }
 
-      .dog-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+      .hero-slide h2 {
+        font-size: 1.8rem;
+      }
+
+      .hero-dog {
+        width: 150px;
       }
 
       .dog-card img {
-        width: 180px;
-        height: 180px;
-        object-fit: cover;
-        background: #fff;
-        border-radius: 12px;
-        margin-bottom: 18px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease;
-      }
-
-      .dog-card:hover img {
-        transform: scale(1.05);
+        width: 160px;
+        height: 160px;
       }
 
       .dog-card p {
-        margin: 0;
-        color: var(--red);
-        font-weight: 800;
-        font-size: 1.3rem;
-        text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        font-size: 1.2rem;
       }
+    }
 
-      /* Responsividade */
-      @media (max-width: 1200px) {
-        .hero-slide {
-          padding: 24px;
-          height: 320px;
-        }
-        .hero-slide h2 {
-          font-size: 2.2rem;
-        }
-        .hero-dog {
-          width: 180px;
-        }
-      }
+    /* ====== SEÇÃO DE DOAÇÕES ====== */
+    .donation-section {
+      background-color: var(--yellow);
+      padding: 2.5rem 1.5rem;
+      margin: 3rem auto;
+      border-radius: 20px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+      text-align: center;
+      max-width: 900px;
+      position: relative;
+      overflow: hidden;
+    }
 
-      @media (max-width: 992px) {
-        .dogs-grid {
-          grid-template-columns: repeat(2, 1fr);
-        }
-        .hero-slide .text {
-          max-width: 100%;
-          text-align: center;
-        }
-        .hero-slide {
-          flex-direction: column;
-          text-align: center;
-          gap: 24px;
-          height: auto;
-          min-height: 350px;
-          padding: 40px 24px;
-        }
-      }
+    .donation-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: var(--red);
+    }
 
-      @media (max-width: 768px) {
-        .hero-slide h2 {
-          font-size: 2rem;
-        }
-        .hero-slide p {
-          font-size: 1.1rem;
-        }
-        .dogs-grid {
-          grid-template-columns: 1fr;
-          padding: 0 15px;
-        }
-        .dogs-section h2 {
-          font-size: 2.2rem;
-        }
-      }
+    .donation-section h3 {
+      color: var(--red);
+      font-weight: 800;
+      margin-bottom: 1.2rem;
+      font-size: 2rem;
+      position: relative;
+      display: inline-block;
+    }
 
-      @media (max-width: 576px) {
-        .hero-slide {
-          padding: 30px 20px;
-        }
-        .hero-slide h2 {
-          font-size: 1.8rem;
-        }
-        .hero-dog {
-          width: 150px;
-        }
-        .dog-card img {
-          width: 160px;
-          height: 160px;
-        }
-        .dog-card p {
-          font-size: 1.2rem;
-        }
-      }
+    .donation-section h3::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: var(--red);
+      border-radius: 2px;
+    }
 
-      /* ====== SEÇÃO DE DOAÇÕES ====== */
-      .donation-section {
-        background-color: var(--yellow);
-        padding: 2.5rem 1.5rem;
-        margin: 3rem auto;
-        border-radius: 20px;
-        box-shadow: 0 12px 30px rgba(0,0,0,0.08);
-        text-align: center;
-        max-width: 900px;
-        position: relative;
-        overflow: hidden;
-      }
+    .donation-section p {
+      color: #5a2b2b;
+      font-size: 1.15rem;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
 
-      .donation-section::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 5px;
-        background: var(--red);
-      }
+    .qr-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
 
-      .donation-section h3 {
-        color: var(--red);
-        font-weight: 800;
-        margin-bottom: 1.2rem;
-        font-size: 2rem;
-        position: relative;
-        display: inline-block;
-      }
+    .qr-container img {
+      width: 220px;
+      height: auto;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      background: white;
+      padding: 18px;
+      border: 3px solid var(--red);
+      transition: transform 0.4s ease;
+    }
 
-      .donation-section h3::after {
-        content: '';
-        position: absolute;
-        bottom: -8px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 60px;
-        height: 3px;
-        background: var(--red);
-        border-radius: 2px;
-      }
+    .qr-container img:hover {
+      transform: scale(1.08);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+    }
 
-      .donation-section p {
-        color: #5a2b2b;
-        font-size: 1.15rem;
-        margin-bottom: 2rem;
-        line-height: 1.6;
-        max-width: 600px;
-        margin-left: auto;
-        margin-right: auto;
-      }
+    .qr-container p {
+      margin-top: 12px;
+      color: var(--red);
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: -0.2px;
+    }
 
-      .qr-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 12px;
-      }
+    /* ====== RODAPÉ VERMELHO LINDO ====== */
+    .footer {
+      background-color: var(--red);
+      color: #fff;
+      padding: 0;
+      margin-top: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
 
-      .qr-container img {
-        width: 220px;
-        height: auto;
-        border-radius: 16px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        background: white;
-        padding: 18px;
-        border: 3px solid var(--red);
-        transition: transform 0.4s ease;
-      }
+    .footer-content {
+      padding: 3rem 1.5rem;
+    }
 
-      .qr-container img:hover {
-        transform: scale(1.08);
-        box-shadow: 0 15px 40px rgba(0,0,0,0.25);
-      }
+    .footer-divider-thin {
+      height: 2px;
+      background: linear-gradient(to right, transparent, var(--yellow), transparent);
+      margin: 2rem 0;
+    }
 
-      .qr-container p {
-        margin-top: 12px;
-        color: var(--red);
-        font-weight: 700;
-        font-size: 1.1rem;
-        letter-spacing: -0.2px;
-      }
+    .footer-brand {
+      font-weight: 800;
+      font-size: 1.6rem;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
 
-      /* ====== RODAPÉ VERMELHO LINDO ====== */
-      .footer {
-        background-color: var(--red);
-        color: #fff;
-        padding: 0;
-        margin-top: 2rem;
-        position: relative;
-        overflow: hidden;
-      }
+    .footer-brand i {
+      font-size: 1.5rem;
+    }
 
+    .footer-slogan {
+      font-style: italic;
+      color: #ffd54f;
+      font-size: 1rem;
+      line-height: 1.5;
+      margin-top: 0.5rem;
+    }
+
+    .footer-action {
+      padding: 1.5rem;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      transition: transform 0.3s ease, background 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      cursor: pointer;
+    }
+
+    .footer-action:hover {
+      transform: translateY(-5px);
+      background: rgba(255, 255, 255, 0.15);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .icon-circle {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+      color: #fff;
+      font-size: 1.3rem;
+      background: var(--yellow);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .footer-action h5 {
+      font-weight: 700;
+      color: #fff;
+      margin: 0.5rem 0 0.3rem;
+      font-size: 1.2rem;
+    }
+
+    .footer-action p {
+      color: #ffd54f;
+      font-size: 0.95rem;
+      margin: 0;
+      font-weight: 500;
+    }
+
+    .social-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: var(--yellow);
+      color: var(--red);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      margin: 0 8px;
+    }
+
+    .social-icon:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .copyright {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.9rem;
+    }
+
+    /* ====== CARROSSEL ====== */
+    .carousel-wrap {
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .carousel-slider,
+    .hero-slide {
+      width: 100%;
+      height: 100vh;
+    }
+
+    .hero-slide {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    .hero-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50;
+    }
+
+
+    /* Responsividade */
+    @media (max-width: 768px) {
       .footer-content {
-        padding: 3rem 1.5rem;
-      }
-
-      .footer-divider-thin {
-        height: 2px;
-        background: linear-gradient(to right, transparent, var(--yellow), transparent);
-        margin: 2rem 0;
+        padding: 2rem 1rem;
       }
 
       .footer-brand {
-        font-weight: 800;
-        font-size: 1.6rem;
-        color: #fff;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-      }
-
-      .footer-brand i {
-        font-size: 1.5rem;
+        justify-content: center;
+        font-size: 1.4rem;
       }
 
       .footer-slogan {
-        font-style: italic;
-        color: #ffd54f;
-        font-size: 1rem;
-        line-height: 1.5;
-        margin-top: 0.5rem;
+        text-align: center;
       }
 
       .footer-action {
-        padding: 1.5rem;
-        background: rgba(255,255,255,0.1);
-        border-radius: 16px;
-        transition: transform 0.3s ease, background 0.3s ease;
-        border: 1px solid rgba(255,255,255,0.2);
-        cursor: pointer;
+        padding: 1.2rem;
+        margin-bottom: 1rem;
       }
 
-      .footer-action:hover {
-        transform: translateY(-5px);
-        background: rgba(255,255,255,0.15);
-        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      .donation-section {
+        margin: 2rem auto;
+        padding: 2rem 1rem;
+      }
+
+      .donation-section h3 {
+        font-size: 1.8rem;
+      }
+
+      .qr-container img {
+        width: 180px;
+        padding: 15px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .qr-container img {
+        width: 160px;
+        padding: 12px;
       }
 
       .icon-circle {
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0 auto 1rem;
-        color: #fff;
-        font-size: 1.3rem;
-        background: var(--yellow);
-        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        width: 50px;
+        height: 50px;
+        font-size: 1.1rem;
       }
 
       .footer-action h5 {
-        font-weight: 700;
-        color: #fff;
-        margin: 0.5rem 0 0.3rem;
-        font-size: 1.2rem;
+        font-size: 1.1rem;
       }
 
-      .footer-action p {
-        color: #ffd54f;
-        font-size: 0.95rem;
-        margin: 0;
-        font-weight: 500;
+      .qr-container p {
+        font-size: 1rem;
       }
+    }
 
-      .social-icon {
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        background: var(--yellow);
-        color: var(--red);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.3rem;
-        text-decoration: none;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-        margin: 0 8px;
-      }
+    /* Efeito leve ao clicar */
+    .footer-action:active {
+      transform: scale(0.97);
+      transition: transform 0.1s ease;
+    }
+  </style>
+</head>
 
-      .social-icon:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 6px 20px rgba(0,0,0,0.2);
-      }
-
-      .copyright {
-        margin-top: 2rem;
-        padding-top: 1.5rem;
-        border-top: 1px solid rgba(255,255,255,0.2);
-        color: rgba(255,255,255,0.7);
-        font-size: 0.9rem;
-      }
-
-      /* Responsividade */
-      @media (max-width: 768px) {
-        .footer-content { padding: 2rem 1rem; }
-
-        .footer-brand { justify-content: center; font-size: 1.4rem; }
-
-        .footer-slogan { text-align: center; }
-
-        .footer-action { padding: 1.2rem; margin-bottom: 1rem; }
-
-        .donation-section { margin: 2rem auto; padding: 2rem 1rem; }
-
-        .donation-section h3 { font-size: 1.8rem; }
-
-        .qr-container img { width: 180px; padding: 15px; }
-      }
-
-      @media (max-width: 576px) {
-        .qr-container img { width: 160px; padding: 12px; }
-
-        .icon-circle { width: 50px; height: 50px; font-size: 1.1rem; }
-
-        .footer-action h5 { font-size: 1.1rem; }
-
-        .qr-container p { font-size: 1rem; }
-      }
-
-      /* Efeito leve ao clicar */
-      .footer-action:active {
-        transform: scale(0.97);
-        transition: transform 0.1s ease;
-      }
-    </style>
-  </head>
-
-  <body>
-    <!-- 🔹 MENU DE NAVEGAÇÃO ESTILIZADO -->
-    <nav class="navbar navbar-expand-lg navbar-custom">
-      <div class="container">
-        <a class="navbar-brand" href="index.html">
-          <img src="logo.png" alt="Cãopanheiro" width="40" height="40">
-          CÃOPANHEIRO
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon" style="color: #fff;"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto align-items-center">
-            <li class="nav-item"><a class="nav-link" href="historia.html">História</a></li>
-            <li class="nav-item"><a class="nav-link" href="localizacao.html">Localização</a></li>
-            <li class="nav-item ms-3"><a class="btn btn-custom" href="cadastro.html">Cadastro / Login</a></li>
-          </ul>
-        </div>
+<body>
+  <!-- 🔹 MENU DE NAVEGAÇÃO ESTILIZADO -->
+  <nav class="navbar navbar-expand-lg navbar-custom">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="fotos/pata.png" alt="Cãopanheiro" width="40" height="40">
+        CÃOPANHEIRO
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon" style="color: #fff;"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-center">
+          <li class="nav-item"><a class="nav-link" href="historia.html">História</a></li>
+          <li class="nav-item"><a class="nav-link" href="localizacao.html">Localização</a></li>
+          <li class="nav-item ms-3"><a class="btn btn-custom" href="cadastro.html">Cadastro / Login</a></li>
+        </ul>
       </div>
-    </nav>
+    </div>
+  </nav>
 
-    <!-- ====== CARROSSEL ====== -->
-    <div class="carousel-wrap">
-      <div class="carousel-slider">
-        <div class="hero-slide">
-          <div class="text">
-            <h2>ADOTE AMOR,</h2>
-            <p>MUDE UMA VIDA — ENCONTRE AQUI SEU MELHOR AMIGO DE QUATRO PATAS.</p>
-          </div>
-          <img class="hero-dog" src="https://i.ibb.co/Yh6Fj4r/cachorro.png" alt="Cachorrinho">
+  <!-- ====== CARROSSEL ====== -->
+  <div class="carousel-wrap">
+    <div class="carousel-slider">
+      <div class="hero-slide">
+        <img src="fotos/carosel 1.png" alt="Cachorrinho">
+      </div>
+      <div class="hero-slide">
+        <img src="https://i.ibb.co/Yh6Fj4r/cachorro.png" alt="Cachorrinho">
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ====== BLOCO CÃES DISPONÍVEIS ====== -->
+  <section class="dogs-section" id="cachorros">
+    <h2>CÃES DISPONÍVEIS</h2>
+
+    <!-- ====== BLOCO DE FILTROS ====== -->
+    <div class="container mt-4 mb-4" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+      <div class="row g-3 justify-content-center">
+        <!-- Filtro de Texto -->
+        <div class="col-md-4 col-lg-3">
+          <input type="text" class="form-control" id="searchInput" placeholder="Buscar por nome..."
+            style="border-radius: 25px; border: 1px solid #ddd; padding: 0.75rem; font-size: 1rem;">
         </div>
-        <div class="hero-slide">
-          <div class="text">
-            <h2>FAÇA PARTE DO GRUPO CÃOPANHEIRO</h2>
-            <p>O QUE IMPORTA NÃO É QUANTO VOCÊ DOA, MAS O QUANTO VOCÊ ACREDITA QUE JUNTOS PODEMOS MUDAR DESTINOS.</p>
-          </div>
-          <img class="hero-dog" src="https://i.ibb.co/Yh6Fj4r/cachorro.png" alt="Cachorrinho">
+
+        <!-- Filtro de Tamanho -->
+        <div class="col-md-4 col-lg-3">
+          <select class="form-select" id="sizeFilter"
+            style="border-radius: 25px; border: 1px solid #ddd; padding: 0.75rem; font-size: 1rem;">
+            <option value="">Todos os tamanhos</option>
+            <option value="pequeno">Pequeno</option>
+            <option value="medio">Médio</option>
+            <option value="grande">Grande</option>
+          </select>
+        </div>
+
+        <!-- Filtro de Idade -->
+        <div class="col-md-4 col-lg-3">
+          <select class="form-select" id="ageFilter"
+            style="border-radius: 25px; border: 1px solid #ddd; padding: 0.75rem; font-size: 1rem;">
+            <option value="">Todas as idades</option>
+            <option value="filhote">Filhote</option>
+            <option value="adulto">Adulto</option>
+            <option value="idoso">Idoso</option>
+          </select>
+        </div>
+
+        <!-- Botão Limpar -->
+        <div class="col-md-4 col-lg-2 d-flex align-items-end">
+          <button class="btn btn-outline-secondary w-100" id="clearFilters"
+            style="border-radius: 25px; padding: 0.75rem; font-size: 1rem;">Limpar</button>
         </div>
       </div>
     </div>
 
-    <!-- ====== BLOCO CÃES DISPONÍVEIS ====== -->
-    <section class="dogs-section" id="cachorros">
-      <h2>CÃES DISPONÍVEIS</h2>
-
-      <!-- ====== BLOCO DE FILTROS ====== -->
-      <div class="container mt-4 mb-4" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
-        <div class="row g-3 justify-content-center">
-          <!-- Filtro de Texto -->
-          <div class="col-md-4 col-lg-3">
-            <input type="text" class="form-control" id="searchInput" placeholder="Buscar por nome..." style="border-radius: 25px; border: 1px solid #ddd; padding: 0.75rem; font-size: 1rem;">
-          </div>
-
-          <!-- Filtro de Tamanho -->
-          <div class="col-md-4 col-lg-3">
-            <select class="form-select" id="sizeFilter" style="border-radius: 25px; border: 1px solid #ddd; padding: 0.75rem; font-size: 1rem;">
-              <option value="">Todos os tamanhos</option>
-              <option value="pequeno">Pequeno</option>
-              <option value="medio">Médio</option>
-              <option value="grande">Grande</option>
-            </select>
-          </div>
-
-          <!-- Filtro de Idade -->
-          <div class="col-md-4 col-lg-3">
-            <select class="form-select" id="ageFilter" style="border-radius: 25px; border: 1px solid #ddd; padding: 0.75rem; font-size: 1rem;">
-              <option value="">Todas as idades</option>
-              <option value="filhote">Filhote</option>
-              <option value="adulto">Adulto</option>
-              <option value="idoso">Idoso</option>
-            </select>
-          </div>
-
-          <!-- Botão Limpar -->
-          <div class="col-md-4 col-lg-2 d-flex align-items-end">
-            <button class="btn btn-outline-secondary w-100" id="clearFilters" style="border-radius: 25px; padding: 0.75rem; font-size: 1rem;">Limpar</button>
-          </div>
-        </div>
+    <div class="dogs-grid">
+      <div class="dog-card" data-name="MARIA" data-size="pequeno" data-age="adulto" data-breed="Vira-lata">
+        <img src="fotos/maria.jfif" alt="Maria">
+        <p>MARIA</p>
       </div>
-
-      <div class="dogs-grid">
-        <div class="dog-card" data-name="MARIA" data-size="pequeno" data-age="adulto" data-breed="Vira-lata">
-          <img src="fotos/maria.jfif" alt="Maria">
-          <p>MARIA</p>
-        </div>
-        <div class="dog-card" data-name="VERMELHINHO" data-size="pequeno" data-age="adulto" data-breed="Shih Tzu misturado">
-          <img src="fotos/vermelhinho.jfif" alt="Vermelhinho">
-          <p>VERMELHINHO</p>
-        </div>
-        <div class="dog-card" data-name="GEOVANE" data-size="grande" data-age="adulto" data-breed="Labrador Retriever">
-          <img src="fotos/geovane.jfif" alt="Geovane">
-          <p>GEOVANE</p>
-        </div>
-        <div class="dog-card" data-name="LUCAS" data-size="pequeno" data-age="adulto" data-breed="Poodle Toy">
-          <img src="fotos/lucas.jfif" alt="Lucas">
-          <p>LUCAS</p>
-        </div>
-        <div class="dog-card" data-name="JORGE" data-size="grande" data-age="adulto" data-breed="Pastor Alemão">
-          <img src="fotos/jorge.jfif" alt="Jorge">
-          <p>JORGE</p>
-        </div>
-        <div class="dog-card" data-name="MALUQUINHO" data-size="medio" data-age="filhote" data-breed="Mestiço ativo">
-          <img src="fotos/louquinha.jfif" alt="Maluquinho">
-          <p>MALUQUINHO</p>
-        </div>
+      <div class="dog-card" data-name="VERMELHINHO" data-size="pequeno" data-age="adulto"
+        data-breed="Shih Tzu misturado">
+        <img src="fotos/vermelhinho.jfif" alt="Vermelhinho">
+        <p>VERMELHINHO</p>
       </div>
-    </section>
-
-    <!-- ====== BLOCO DE DOAÇÕES (AMARELO) ====== -->
-    <section class="donation-section" id="doar">
-      <div>
-        <h3>DOAÇÕES</h3>
-        <p>Seu apoio é essencial para continuar ajudando nossos cães. Doe qualquer valor e ajude a transformar vidas.</p>
-        <div class="qr-container">
-          <img src="fotos/QR Code.jpeg" alt="QR Code para doações">
-          <p>Escaneie para doar</p>
-        </div>
+      <div class="dog-card" data-name="GEOVANE" data-size="grande" data-age="adulto" data-breed="Labrador Retriever">
+        <img src="fotos/geovane.jfif" alt="Geovane">
+        <p>GEOVANE</p>
       </div>
-    </section>
+      <div class="dog-card" data-name="LUCAS" data-size="pequeno" data-age="adulto" data-breed="Poodle Toy">
+        <img src="fotos/lucas.jfif" alt="Lucas">
+        <p>LUCAS</p>
+      </div>
+      <div class="dog-card" data-name="JORGE" data-size="grande" data-age="adulto" data-breed="Pastor Alemão">
+        <img src="fotos/jorge.jfif" alt="Jorge">
+        <p>JORGE</p>
+      </div>
+      <div class="dog-card" data-name="MALUQUINHO" data-size="medio" data-age="filhote" data-breed="Mestiço ativo">
+        <img src="fotos/louquinha.jfif" alt="Maluquinho">
+        <p>MALUQUINHO</p>
+      </div>
+    </div>
+  </section>
 
-    <!-- ====== RODAPÉ (VERMELHO) ====== -->
-    <footer class="footer">
-      <div class="footer-content">
-        <div class="container">
-          <!-- Linha divisória -->
-          <div class="footer-divider-thin"></div>
+  <!-- ====== BLOCO DE DOAÇÕES (AMARELO) ====== -->
+  <section class="donation-section" id="doar">
+    <div>
+      <h3>DOAÇÕES</h3>
+      <p>Seu apoio é essencial para continuar ajudando nossos cães. Doe qualquer valor e ajude a transformar vidas.</p>
+      <div class="qr-container">
+        <img src="fotos/QR Code.jpeg" alt="QR Code para doações">
+        <p>Escaneie para doar</p>
+      </div>
+    </div>
+  </section>
 
-          <!-- Rodapé inferior: Logo, colunas, redes sociais -->
-          <div class="row align-items-center">
-            <!-- Logo -->
-            <div class="col-md-4 text-center text-md-start mb-4 mb-md-0">
-              <div class="footer-brand">
-                <i class="fas fa-paw"></i>
-                <span>CÃOPANHEIRO</span>
-              </div>
-              <p class="footer-slogan">
-                “Adotar é um ato de amor, dê uma nova chance, transforme uma vida.”
-              </p>
+  <!-- ====== RODAPÉ (VERMELHO) ====== -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="container">
+        <!-- Linha divisória -->
+        <div class="footer-divider-thin"></div>
+
+        <!-- Rodapé inferior: Logo, colunas, redes sociais -->
+        <div class="row align-items-center">
+          <!-- Logo -->
+          <div class="col-md-4 text-center text-md-start mb-4 mb-md-0">
+            <div class="footer-brand">
+              <i class="fas fa-paw"></i>
+              <span>CÃOPANHEIRO</span>
             </div>
-
-            <!-- Coluna: ADOTE → agora com data-target -->
-            <div class="col-md-4 text-center mb-4 mb-md-0">
-              <div class="footer-action" role="button" tabindex="0" data-target="cachorros" aria-label="Ir para adote">
-                <div class="icon-circle">
-                  <i class="fas fa-heart"></i>
-                </div>
-                <h5>ADOTE</h5>
-                <p>Adote com responsabilidade</p>
-              </div>
-            </div>
-
-            <!-- Coluna: COLABORE → agora com data-target apontando para o QR -->
-            <div class="col-md-4 text-center">
-              <div class="footer-action" role="button" tabindex="0" data-target="doar" aria-label="Ir para doações">
-                <div class="icon-circle">
-                  <i class="fas fa-hand-holding-heart"></i>
-                </div>
-                <h5>COLABORE</h5>
-                <p>Doe qualquer valor</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Redes sociais -->
-          <div class="text-center mt-4">
-            <div class="d-flex justify-content-center gap-3">
-              <a href="#" class="social-icon" aria-label="Facebook">
-                <i class="fab fa-facebook-f"></i>
-              </a>
-              <a href="#" class="social-icon" aria-label="Instagram">
-                <i class="fab fa-instagram"></i>
-              </a>
-            </div>
-            <p class="copyright">
-              © 2025 Cãopanheiro. Todos os direitos reservados. Juntos por um mundo melhor para os animais.
+            <p class="footer-slogan">
+              “Adotar é um ato de amor, dê uma nova chance, transforme uma vida.”
             </p>
           </div>
+
+          <!-- Coluna: ADOTE → agora com data-target -->
+          <div class="col-md-4 text-center mb-4 mb-md-0">
+            <div class="footer-action" role="button" tabindex="0" data-target="cachorros" aria-label="Ir para adote">
+              <div class="icon-circle">
+                <i class="fas fa-heart"></i>
+              </div>
+              <h5>ADOTE</h5>
+              <p>Adote com responsabilidade</p>
+            </div>
+          </div>
+
+          <!-- Coluna: COLABORE → agora com data-target apontando para o QR -->
+          <div class="col-md-4 text-center">
+            <div class="footer-action" role="button" tabindex="0" data-target="doar" aria-label="Ir para doações">
+              <div class="icon-circle">
+                <i class="fas fa-hand-holding-heart"></i>
+              </div>
+              <h5>COLABORE</h5>
+              <p>Doe qualquer valor</p>
+            </div>
+          </div>
         </div>
-      </div>
-    </footer>
 
-    <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
-    <script>
-      $(function () {
-        $('.carousel-slider').slick({
-          autoplay: true,
-          autoplaySpeed: 4000,
-          dots: true,
-          arrows: true,
-          infinite: true,
-          speed: 800,
-          fade: true,
-          cssEase: 'ease-in-out',
-          responsive: [
-            {
-              breakpoint: 992,
-              settings: {
-                fade: false,
-                arrows: true,
-                centerMode: true,
-                centerPadding: '20px',
-                slidesToShow: 1
-              }
-            },
-            {
-              breakpoint: 576,
-              settings: {
-                arrows: false,
-                dots: true,
-                centerMode: true,
-                centerPadding: '10px',
-                slidesToShow: 1
-              }
-            }
-          ]
-        });
-      });
-
-      // JavaScript robusto para rolar suavemente para as seções (usa data-target)
-      document.addEventListener('DOMContentLoaded', function() {
-        const footerActions = document.querySelectorAll('.footer-action');
-
-        footerActions.forEach(action => {
-          const targetId = action.dataset.target;
-          if (!targetId) return;
-
-          action.addEventListener('click', function() {
-            const target = document.getElementById(targetId);
-            if (target) {
-              window.scrollTo({
-                top: target.offsetTop - 80,
-                behavior: 'smooth'
-              });
-            }
-          });
-
-          action.addEventListener('keydown', function(e) {
-            if (e.key === 'Enter' || e.key === ' ') {
-              e.preventDefault();
-              action.click();
-            }
-          });
-        });
-      });
-
-      // MODAL DOS CACHORROS — AGORA USA OS DADOS DO HTML (DATA-ATTRIBUTES)
-      document.addEventListener('DOMContentLoaded', function() {
-        const dogCards = document.querySelectorAll('.dog-card');
-        const modal = document.getElementById('dogModal');
-        const modalTitle = document.getElementById('dogModalLabel');
-        const modalImage = document.getElementById('modalDogImage');
-        const modalBreed = document.getElementById('modalBreed');
-        const modalAge = document.getElementById('modalAge');
-        const modalStory = document.getElementById('modalStory');
-
-        const dogStories = {
-          "MARIA": "Maria foi encontrada sozinha em um lixão. Tem medo de homens, mas ama crianças e é extremamente fiel. Está em tratamento de ansiedade e precisa de um lar amoroso.",
-          "VERMELHINHO": "Vermelhinho tem um pelo encantador e um coração ainda mais bonito. Foi abandonado por causa de sua pelagem roubada pela natureza. Ele adora correr no jardim e dormir no colo.",
-          "GEOVANE": "Geovane é um gigante gentil. Foi resgatado de maus-tratos e agora só quer um lugar para ser amado. Gosta de brincar com bolas e adora passeios.",
-          "LUCAS": "Lucas é um cãozinho inteligente e carinhoso. Sofreu abandono e perdeu parte da audição, mas aprendeu a entender gestos e olhares. Precisa de um lar calmo e paciente.",
-          "JORGE": "Jorge é um guardião nato. Foi encontrado em uma fazenda, protegendo outros animais. Ele é tranquilo, obediente e ama crianças. Busca um lar definitivo.",
-          "MALUQUINHO": "Maluquinho é pura energia! Brinca o dia inteiro, adora pular e fazer travessuras. É super sociável e se dá bem com outros pets. Perfeito para famílias ativas!"
-        };
-
-        dogCards.forEach(card => {
-          card.addEventListener('click', function() {
-            const img = this.querySelector('img');
-            const name = this.getAttribute('data-name');
-            const breed = this.getAttribute('data-breed');
-            const age = this.getAttribute('data-age');
-            const story = dogStories[name] || "História não disponível. Mas ele merece um lar cheio de amor!";
-
-            modalTitle.textContent = name;
-            modalImage.src = img.src;
-            modalBreed.textContent = breed;
-            modalAge.textContent = age;
-            modalStory.textContent = story;
-
-            const bsModal = new bootstrap.Modal(modal);
-            bsModal.show();
-          });
-        });
-      });
-
-      // FILTRO DINÂMICO DOS CÃES (USANDO DATA-ATTRIBUTES DO HTML)
-      document.addEventListener('DOMContentLoaded', function() {
-        const searchInput = document.getElementById('searchInput');
-        const sizeFilter = document.getElementById('sizeFilter');
-        const ageFilter = document.getElementById('ageFilter');
-        const clearButton = document.getElementById('clearFilters');
-        const dogCards = document.querySelectorAll('.dog-card');
-
-        function applyFilters() {
-          const searchTerm = searchInput.value.toLowerCase().trim();
-          const selectedSize = sizeFilter.value;
-          const selectedAge = ageFilter.value;
-
-          dogCards.forEach(card => {
-            const name = card.getAttribute('data-name').toLowerCase();
-            const size = card.getAttribute('data-size');
-            const age = card.getAttribute('data-age');
-
-            let matchesSearch = true;
-            let matchesSize = true;
-            let matchesAge = true;
-
-            if (searchTerm && !name.includes(searchTerm)) {
-              matchesSearch = false;
-            }
-
-            if (selectedSize && size !== selectedSize) {
-              matchesSize = false;
-            }
-
-            if (selectedAge && age !== selectedAge) {
-              matchesAge = false;
-            }
-
-            if (matchesSearch && matchesSize && matchesAge) {
-              card.style.display = 'flex';
-            } else {
-              card.style.display = 'none';
-            }
-          });
-        }
-
-        searchInput.addEventListener('input', applyFilters);
-        sizeFilter.addEventListener('change', applyFilters);
-        ageFilter.addEventListener('change', applyFilters);
-
-        clearButton.addEventListener('click', function() {
-          searchInput.value = '';
-          sizeFilter.selectedIndex = 0;
-          ageFilter.selectedIndex = 0;
-          applyFilters();
-        });
-
-        applyFilters();
-      });
-    </script>
-
-    <!-- Modal Dinâmico para Detalhes do Cachorro -->
-    <div class="modal fade" id="dogModal" tabindex="-1" aria-labelledby="dogModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg modal-dialog-centered">
-        <div class="modal-content" style="border-radius: 20px; border: none;">
-          <div class="modal-header bg-light border-0">
-            <h5 class="modal-title" id="dogModalLabel" style="color: #8E2020; font-weight: 800;"></h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <!-- Redes sociais -->
+        <div class="text-center mt-4">
+          <div class="d-flex justify-content-center gap-3">
+            <a href="#" class="social-icon" aria-label="Facebook">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="social-icon" aria-label="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
           </div>
-          <div class="modal-body text-center">
-            <img id="modalDogImage" src="" alt="Foto do cachorro" class="img-fluid rounded-3 shadow-sm mb-4" style="max-width: 250px; height: auto;">
-            <p id="modalBreed" style="font-size: 1.1rem; color: #5a2b2b; margin-bottom: 0.5rem;"></p>
-            <p id="modalAge" style="font-size: 1.1rem; color: #5a2b2b; margin-bottom: 0.5rem;"></p>
-            <p id="modalStory" style="font-size: 1.05rem; color: #5a2b2b; line-height: 1.6; margin-bottom: 2rem;"></p>
-            
-            <a href="cadastro.html" class="btn btn-custom w-100" style="font-size: 1.1rem; padding: 0.75rem 1.5rem;">QUERO ADOTAR</a>
-          </div>
+          <p class="copyright">
+            © 2025 Cãopanheiro. Todos os direitos reservados. Juntos por um mundo melhor para os animais.
+          </p>
         </div>
       </div>
     </div>
-  </body>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+  <script>
+    $(function () {
+      $('.carousel-slider').slick({
+        autoplay: true,
+        autoplaySpeed: 4000,
+        dots: true,
+        arrows: true,
+        infinite: true,
+        speed: 800,
+        fade: true,
+        cssEase: 'ease-in-out',
+        responsive: [
+          {
+            breakpoint: 992,
+            settings: {
+              fade: false,
+              arrows: true,
+              centerMode: true,
+              centerPadding: '20px',
+              slidesToShow: 1
+            }
+          },
+          {
+            breakpoint: 576,
+            settings: {
+              arrows: false,
+              dots: true,
+              centerMode: true,
+              centerPadding: '10px',
+              slidesToShow: 1
+            }
+          }
+        ]
+      });
+    });
+
+    // JavaScript robusto para rolar suavemente para as seções (usa data-target)
+    document.addEventListener('DOMContentLoaded', function () {
+      const footerActions = document.querySelectorAll('.footer-action');
+
+      footerActions.forEach(action => {
+        const targetId = action.dataset.target;
+        if (!targetId) return;
+
+        action.addEventListener('click', function () {
+          const target = document.getElementById(targetId);
+          if (target) {
+            window.scrollTo({
+              top: target.offsetTop - 80,
+              behavior: 'smooth'
+            });
+          }
+        });
+
+        action.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            action.click();
+          }
+        });
+      });
+    });
+
+    // MODAL DOS CACHORROS — AGORA USA OS DADOS DO HTML (DATA-ATTRIBUTES)
+    document.addEventListener('DOMContentLoaded', function () {
+      const dogCards = document.querySelectorAll('.dog-card');
+      const modal = document.getElementById('dogModal');
+      const modalTitle = document.getElementById('dogModalLabel');
+      const modalImage = document.getElementById('modalDogImage');
+      const modalBreed = document.getElementById('modalBreed');
+      const modalAge = document.getElementById('modalAge');
+      const modalStory = document.getElementById('modalStory');
+
+      const dogStories = {
+        "MARIA": "Maria foi encontrada sozinha em um lixão. Tem medo de homens, mas ama crianças e é extremamente fiel. Está em tratamento de ansiedade e precisa de um lar amoroso.",
+        "VERMELHINHO": "Vermelhinho tem um pelo encantador e um coração ainda mais bonito. Foi abandonado por causa de sua pelagem roubada pela natureza. Ele adora correr no jardim e dormir no colo.",
+        "GEOVANE": "Geovane é um gigante gentil. Foi resgatado de maus-tratos e agora só quer um lugar para ser amado. Gosta de brincar com bolas e adora passeios.",
+        "LUCAS": "Lucas é um cãozinho inteligente e carinhoso. Sofreu abandono e perdeu parte da audição, mas aprendeu a entender gestos e olhares. Precisa de um lar calmo e paciente.",
+        "JORGE": "Jorge é um guardião nato. Foi encontrado em uma fazenda, protegendo outros animais. Ele é tranquilo, obediente e ama crianças. Busca um lar definitivo.",
+        "MALUQUINHO": "Maluquinho é pura energia! Brinca o dia inteiro, adora pular e fazer travessuras. É super sociável e se dá bem com outros pets. Perfeito para famílias ativas!"
+      };
+
+      dogCards.forEach(card => {
+        card.addEventListener('click', function () {
+          const img = this.querySelector('img');
+          const name = this.getAttribute('data-name');
+          const breed = this.getAttribute('data-breed');
+          const age = this.getAttribute('data-age');
+          const story = dogStories[name] || "História não disponível. Mas ele merece um lar cheio de amor!";
+
+          modalTitle.textContent = name;
+          modalImage.src = img.src;
+          modalBreed.textContent = breed;
+          modalAge.textContent = age;
+          modalStory.textContent = story;
+
+          const bsModal = new bootstrap.Modal(modal);
+          bsModal.show();
+        });
+      });
+    });
+
+    // FILTRO DINÂMICO DOS CÃES (USANDO DATA-ATTRIBUTES DO HTML)
+    document.addEventListener('DOMContentLoaded', function () {
+      const searchInput = document.getElementById('searchInput');
+      const sizeFilter = document.getElementById('sizeFilter');
+      const ageFilter = document.getElementById('ageFilter');
+      const clearButton = document.getElementById('clearFilters');
+      const dogCards = document.querySelectorAll('.dog-card');
+
+      function applyFilters() {
+        const searchTerm = searchInput.value.toLowerCase().trim();
+        const selectedSize = sizeFilter.value;
+        const selectedAge = ageFilter.value;
+
+        dogCards.forEach(card => {
+          const name = card.getAttribute('data-name').toLowerCase();
+          const size = card.getAttribute('data-size');
+          const age = card.getAttribute('data-age');
+
+          let matchesSearch = true;
+          let matchesSize = true;
+          let matchesAge = true;
+
+          if (searchTerm && !name.includes(searchTerm)) {
+            matchesSearch = false;
+          }
+
+          if (selectedSize && size !== selectedSize) {
+            matchesSize = false;
+          }
+
+          if (selectedAge && age !== selectedAge) {
+            matchesAge = false;
+          }
+
+          if (matchesSearch && matchesSize && matchesAge) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      }
+
+      searchInput.addEventListener('input', applyFilters);
+      sizeFilter.addEventListener('change', applyFilters);
+      ageFilter.addEventListener('change', applyFilters);
+
+      clearButton.addEventListener('click', function () {
+        searchInput.value = '';
+        sizeFilter.selectedIndex = 0;
+        ageFilter.selectedIndex = 0;
+        applyFilters();
+      });
+
+      applyFilters();
+    });
+  </script>
+
+  <!-- Modal Dinâmico para Detalhes do Cachorro -->
+  <div class="modal fade" id="dogModal" tabindex="-1" aria-labelledby="dogModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content" style="border-radius: 20px; border: none;">
+        <div class="modal-header bg-light border-0">
+          <h5 class="modal-title" id="dogModalLabel" style="color: #8E2020; font-weight: 800;"></h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center">
+          <img id="modalDogImage" src="" alt="Foto do cachorro" class="img-fluid rounded-3 shadow-sm mb-4"
+            style="max-width: 250px; height: auto;">
+          <p id="modalBreed" style="font-size: 1.1rem; color: #5a2b2b; margin-bottom: 0.5rem;"></p>
+          <p id="modalAge" style="font-size: 1.1rem; color: #5a2b2b; margin-bottom: 0.5rem;"></p>
+          <p id="modalStory" style="font-size: 1.05rem; color: #5a2b2b; line-height: 1.6; margin-bottom: 2rem;"></p>
+
+          <a href="cadastro.html" class="btn btn-custom w-100" style="font-size: 1.1rem; padding: 0.75rem 1.5rem;">QUERO
+            ADOTAR</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
 </html>
