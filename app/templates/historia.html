@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -224,110 +225,138 @@
     }
 
 
-    /* ====== RODAPÉ VERMELHO LINDO ====== */
-    .footer {
-      background-color: var(--red);
-      color: #fff;
-      padding: 0;
-      margin-top: 2rem;
-      position: relative;
-      overflow: hidden;
-    }
+/* ====== RODAPÉ ====== */
+.footer {
+  background-color: var(--red);
+  color: #fff;
+  padding: 0;
+  margin-top: 2rem;
+  position: relative;
+  overflow: hidden;
+}
 
-    .footer-content {
-      padding: 3rem 1.5rem;
-    }
+.footer-content {
+  padding: 3rem 1.5rem;
+}
 
-    .footer-divider-thin {
-      height: 2px;
-      background: linear-gradient(to right, transparent, var(--yellow), transparent);
-      margin: 2rem 0;
-    }
+.footer-divider-thin {
+  height: 2px;
+  background: linear-gradient(to right, transparent, var(--yellow), transparent);
+  margin: 2rem 0;
+}
 
-    .footer-brand {
-      font-weight: 800;
-      font-size: 1.6rem;
-      color: #fff;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
+.footer-brand {
+  font-weight: 800;
+  font-size: 1.6rem;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
 
-    .footer-brand i {
-      font-size: 1.5rem;
-    }
+.footer-brand i {
+  font-size: 1.5rem;
+}
 
-    .footer-slogan {
-      font-style: italic;
-      color: #ffd54f;
-      font-size: 1rem;
-      line-height: 1.5;
-      margin-top: 0.5rem;
-    }
+.footer-slogan {
+  font-style: italic;
+  color: #ffd54f;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-top: 0.5rem;
+}
 
-    .footer-action {
-      padding: 1.5rem;
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 16px;
-      transition: transform 0.3s ease, background 0.3s ease;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      cursor: pointer;
-    }
+/* ====== LINKS COMO BOTÕES ====== */
+.footer-action {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  transition: transform 0.3s ease, background 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  text-decoration: none; /* remove sublinhado do link */
+  cursor: pointer;
+}
 
-    .footer-action:hover {
-      transform: translateY(-5px);
-      background: rgba(255, 255, 255, 0.15);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    }
+.footer-action:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
 
-    .icon-circle {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 1rem;
-      color: #fff;
-      font-size: 1.3rem;
-      background: var(--yellow);
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    }
+.icon-circle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  color: #fff;
+  font-size: 1.3rem;
+  background: var(--yellow);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
 
-    .footer-action h5 {
-      font-weight: 700;
-      color: #fff;
-      margin: 0.5rem 0 0.3rem;
-      font-size: 1.2rem;
-    }
+.footer-action h5 {
+  font-weight: 700;
+  color: #fff;
+  margin: 0.5rem 0 0.3rem;
+  font-size: 1.2rem;
+  text-align: center;
+}
 
-    .footer-action p {
-      color: #ffd54f;
-      font-size: 0.95rem;
-      margin: 0;
-      font-weight: 500;
-    }
+.footer-action p {
+  color: #ffd54f;
+  font-size: 0.95rem;
+  margin: 0;
+  font-weight: 500;
+  text-align: center;
+}
 
-    .social-icon {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      background: var(--yellow);
-      color: var(--red);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.3rem;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-      margin: 0 8px;
-    }
+/* ====== REDES SOCIAIS ====== */
+.social-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--yellow);
+  color: var(--red);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  margin: 0 8px;
+}
 
-    .social-icon:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-    }
+.social-icon:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.copyright {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+}
+
+/* ====== RESPONSIVO ====== */
+@media (max-width: 768px) {
+  .footer .row {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-action {
+    margin-bottom: 1.5rem;
+  }
+}
 
     .copyright {
       margin-top: 2rem;
@@ -375,14 +404,32 @@
         flex-direction: column;
       }
     }
+
     .navbar-brand img.logo {
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  margin-right: 0.6rem;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-}
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      margin-right: 0.6rem;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .btn-custom-navbar {
+      background: var(--gradient);
+      color: var(--red);
+      font-weight: 700;
+      border-radius: 25px;
+      padding: 0.6rem 1.5rem;
+      border: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(239, 191, 106, 0.3);
+    }
+
+    .btn-custom-navbar:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(239, 191, 106, 0.4);
+      color: var(--red);
+    }
   </style>
 </head>
 
@@ -390,25 +437,33 @@
   <div class="main-container" style="display: flex; flex-direction: column; min-height: 100vh;">
 
     <!-- MENU DE NAVEGAÇÃO -->
-    <nav class="navbar navbar-expand-lg navbar-custom">
+    <nav class="navbar navbar-expand-lg" style="background-color: #8B1C1C;">
       <div class="container">
-        <a class="navbar-brand" href="index.html">
-          <img src="fotos/pata.png" alt="Cãopanheiro" width="40" height="40">
+        <a class="navbar-brand text-white fw-bold" href="/">
+          <img src="{% static 'fotos/pata.png' %}" alt="Cãopanheiro" style="height: 40px;" class="me-2">
           CÃOPANHEIRO
         </a>
+
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
           aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon" style="color: #fff;"></span>
+          <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto align-items-center">
-            <li class="nav-item"><a class="nav-link" href="historia.html">História</a></li>
-            <li class="nav-item"><a class="nav-link" href="localizacao.html">Localização</a></li>
-            <li class="nav-item ms-3"><a class="btn btn-custom" href="cadastro.html">Cadastro / Login</a></li>
+            <li class="nav-item">
+              <a class="nav-link text-white fw-medium" href="{% url 'historia' %}">História</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white fw-medium" href="{% url 'localizacao' %}">Localização</a>
+            </li>
+            <li class="nav-item ms-3">
+              <a class="btn btn-custom-navbar fw-bold" href="{% url 'cadastro' %}">Cadastro / Login</a>
+            </li>
           </ul>
         </div>
       </div>
     </nav>
+
 
     <!-- MAIN CONTENT -->
     <div class="main-content">
@@ -422,7 +477,8 @@
 
       <div class="story-container">
         <div class="story-card">
-          <img src="fotos/tigrao.jpg" alt="Tigrão, cão adotado após viver no campus do IF" loading="lazy">
+          <img src="{% static 'fotos/tigrao.jpg' %}" alt="Tigrão, cão adotado após viver no campus do IF"
+            loading="lazy">
           <div class="story-content">
             <h4>A História do Tigrão</h4>
             <p>Tigrão viveu um tempo no campus e logo conquistou a todos com seu jeito dócil. Ele era muito bonzinho,
@@ -457,28 +513,27 @@
 
             <!-- Coluna: ADOTE -->
             <div class="col-md-4 text-center mb-4 mb-md-0">
-              <div class="footer-action" role="button" tabindex="0" data-target="index.html#cachorros"
-                aria-label="Ir para adote">
+              <a href="{% url 'index' %}#cachorros" class="footer-action text-decoration-none" role="button"
+                tabindex="0" aria-label="Ir para adote">
                 <div class="icon-circle">
                   <i class="fas fa-heart"></i>
                 </div>
                 <h5>ADOTE</h5>
                 <p>Adote com responsabilidade</p>
-              </div>
+              </a>
             </div>
 
             <!-- Coluna: COLABORE -->
             <div class="col-md-4 text-center">
-              <div class="footer-action" role="button" tabindex="0" data-target="index.html#doar"
+              <a href="{% url 'index' %}#doar" class="footer-action text-decoration-none" role="button" tabindex="0"
                 aria-label="Ir para doações">
                 <div class="icon-circle">
                   <i class="fas fa-hand-holding-heart"></i>
                 </div>
                 <h5>COLABORE</h5>
                 <p>Doe qualquer valor</p>
-              </div>
+              </a>
             </div>
-
 
             <!-- Redes sociais -->
             <div class="text-center mt-4">

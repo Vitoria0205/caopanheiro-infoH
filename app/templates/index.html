@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -7,7 +8,7 @@
   <title>Cãopanheiro</title>
 
   <!-- Favicon -->
-  <link rel="icon" href="logo.png" type="image/png">
+  <link rel="icon" href="" type="image/png">
 
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -657,44 +658,90 @@
       }
     }
 
-    /* Efeito leve ao clicar */
-    .footer-action:active {
-      transform: scale(0.97);
-      transition: transform 0.1s ease;
+    /* ====== BOTÕES PERSONALIZADOS ====== */
+    .btn-custom-navbar,
+    .btn-custom {
+      background: var(--gradient);
+      color: var(--red);
+      font-weight: 700;
+      border-radius: 50px;
+      /* totalmente arredondado */
+      padding: 0.6rem 1.5rem;
+      border: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(239, 191, 106, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-custom-navbar::after,
+    .btn-custom::after {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: rgba(255, 255, 255, 0.3);
+      transform: rotate(45deg);
+      transition: all 0.5s ease;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .btn-custom-navbar:hover,
+    .btn-custom:hover {
+      color: var(--red);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(239, 191, 106, 0.6);
+    }
+
+    .btn-custom-navbar:hover::after,
+    .btn-custom:hover::after {
+      opacity: 1;
+      top: -25%;
+      left: -25%;
     }
   </style>
 </head>
 
 <body>
-  <!-- 🔹 MENU DE NAVEGAÇÃO ESTILIZADO -->
-  <nav class="navbar navbar-expand-lg navbar-custom">
+  <nav class="navbar navbar-expand-lg" style="background-color: #8B1C1C;">
     <div class="container">
-      <a class="navbar-brand" href="index.html">
-        <img src="fotos/pata.png" alt="Cãopanheiro" width="40" height="40">
+      <a class="navbar-brand text-white fw-bold" href="/">
+        <img src="{% static 'fotos/pata.png' %}" alt="Cãopanheiro" style="height: 40px;" class="me-2">
         CÃOPANHEIRO
       </a>
+
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon" style="color: #fff;"></span>
+        <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto align-items-center">
-          <li class="nav-item"><a class="nav-link" href="historia.html">História</a></li>
-          <li class="nav-item"><a class="nav-link" href="localizacao.html">Localização</a></li>
-          <li class="nav-item ms-3"><a class="btn btn-custom" href="cadastro.html">Cadastro / Login</a></li>
+          <li class="nav-item">
+            <a class="nav-link text-white fw-medium" href="{% url 'historia' %}">História</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white fw-medium" href="{% url 'localizacao' %}">Localização</a>
+          </li>
+          <li class="nav-item ms-3">
+            <a class="btn btn-custom-navbar fw-bold" href="{% url 'cadastro' %}">Cadastro / Login</a>
+          </li>
         </ul>
       </div>
     </div>
   </nav>
 
+
   <!-- ====== CARROSSEL ====== -->
   <div class="carousel-wrap">
     <div class="carousel-slider">
       <div class="hero-slide">
-        <img src="fotos/carosel 1.png" alt="Cachorrinho">
+        <img src="{% static 'fotos/carrosel.png' %}" alt="Carrosel">
       </div>
       <div class="hero-slide">
-        <img src="https://i.ibb.co/Yh6Fj4r/cachorro.png" alt="Cachorrinho">
+        <img src="{% static 'fotos/carrosel2.png' %}" alt="Carrosel">
       </div>
     </div>
   </div>
@@ -745,28 +792,28 @@
 
     <div class="dogs-grid">
       <div class="dog-card" data-name="MARIA" data-size="pequeno" data-age="adulto" data-breed="Vira-lata">
-        <img src="fotos/maria.jfif" alt="Maria">
+        <img src="{% static 'fotos/maria.jfif' %}" alt="Maria">
         <p>MARIA</p>
       </div>
       <div class="dog-card" data-name="VERMELHINHO" data-size="pequeno" data-age="adulto"
         data-breed="Shih Tzu misturado">
-        <img src="fotos/vermelhinho.jfif" alt="Vermelhinho">
+        <img src="{% static 'fotos/vermelhinho.jfif' %}" alt="Vermelhinho">
         <p>VERMELHINHO</p>
       </div>
       <div class="dog-card" data-name="GEOVANE" data-size="grande" data-age="adulto" data-breed="Labrador Retriever">
-        <img src="fotos/geovane.jfif" alt="Geovane">
+        <img src="{% static 'fotos/geovane.jfif' %}" alt="Geovane">
         <p>GEOVANE</p>
       </div>
       <div class="dog-card" data-name="LUCAS" data-size="pequeno" data-age="adulto" data-breed="Poodle Toy">
-        <img src="fotos/lucas.jfif" alt="Lucas">
+        <img src="{% static 'fotos/lucas.jfif' %}" alt="Lucas">
         <p>LUCAS</p>
       </div>
       <div class="dog-card" data-name="JORGE" data-size="grande" data-age="adulto" data-breed="Pastor Alemão">
-        <img src="fotos/jorge.jfif" alt="Jorge">
+        <img src="{% static 'fotos/jorge.jfif' %}" alt="Jorge">
         <p>JORGE</p>
       </div>
       <div class="dog-card" data-name="MALUQUINHO" data-size="medio" data-age="filhote" data-breed="Mestiço ativo">
-        <img src="fotos/louquinha.jfif" alt="Maluquinho">
+        <img src="{% static 'fotos/louquinha.jfif' %}" alt="Maluquinho">
         <p>MALUQUINHO</p>
       </div>
     </div>
@@ -778,7 +825,7 @@
       <h3>DOAÇÕES</h3>
       <p>Seu apoio é essencial para continuar ajudando nossos cães. Doe qualquer valor e ajude a transformar vidas.</p>
       <div class="qr-container">
-        <img src="fotos/QR Code.jpeg" alt="QR Code para doações">
+        <img src="{% static 'fotos/QR Code.jpeg' %}" alt="QR Code para doações">
         <p>Escaneie para doar</p>
       </div>
     </div>
