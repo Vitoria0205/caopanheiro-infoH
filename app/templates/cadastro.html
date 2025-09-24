@@ -1,4 +1,4 @@
-{% load static %} 
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -7,7 +7,7 @@
   <title>Cãopanheiro - Cadastro</title>
 
   <!-- Favicon -->
-  <link rel="icon" href="logo.png" type="image/png">
+  <link rel="icon" href="{% static 'fotos/pata.png' %}" type="image/png">
 
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -19,255 +19,422 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
-    :root{
+    :root {
       --yellow: #EFBF6A;
       --red: #8E2020;
       --white: #fff;
       --light-yellow: #fff4cc;
       --dark-red: #6b1818;
-      --shadow: rgba(0,0,0,0.1);
       --gradient: linear-gradient(135deg, var(--yellow) 0%, #ffd54f 100%);
     }
-    * {margin:0; padding:0; box-sizing:border-box;}
-    body {font-family:'Poppins', Arial, sans-serif; background:var(--gradient); min-height:100vh; display:flex; flex-direction:column; color:#333;}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Poppins', Arial, sans-serif;
+      background: var(--gradient);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      color: #333;
+    }
 
     /* ====== NAVBAR ====== */
-    .navbar-custom {background-color: var(--red); padding:1rem 0; box-shadow:0 2px 10px rgba(0,0,0,0.1);}
-    .navbar-brand {font-weight:800; font-size:1.8rem; color:#fff !important; text-decoration:none; display:flex; align-items:center; transition:transform 0.3s ease;}
-    .navbar-brand img {border-radius:50%; margin-right:0.5rem; transition:transform 0.3s ease;}
-    .navbar-brand:hover img {transform:rotate(360deg);}
-    .navbar-nav .nav-link {color:#fff !important; margin-left:1rem; font-weight:500; position:relative; transition:all 0.3s ease;}
-    .navbar-nav .nav-link::after {content:''; position:absolute; width:0; height:2px; bottom:-5px; left:50%; background-color: var(--yellow); transition: all 0.3s ease; transform: translateX(-50%);}
-    .navbar-nav .nav-link:hover::after {width:100%;}
-    .btn-custom {background: var(--gradient); color: var(--red); font-weight:700; border-radius:25px; padding:0.6rem 1.5rem; border:none; transition:all 0.3s ease; box-shadow:0 4px 15px rgba(239,191,106,0.3);}
-    .btn-custom:hover {transform: translateY(-2px); box-shadow:0 6px 20px rgba(239,191,106,0.4); color:var(--red);}
+    .navbar-custom {
+      background-color: var(--red);
+      padding: 1rem 0;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .navbar-brand {
+      font-weight: 800;
+      font-size: 1.8rem;
+      color: #fff !important;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      transition: transform 0.3s ease;
+    }
+    .navbar-brand img {
+      border-radius: 50%;
+      margin-right: 0.5rem;
+      transition: transform 0.3s ease;
+    }
+    .navbar-brand:hover img {
+      transform: rotate(360deg);
+    }
+    .navbar-nav .nav-link {
+      color: #fff !important;
+      margin-left: 1rem;
+      font-weight: 500;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    .navbar-nav .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -5px;
+      left: 50%;
+      background-color: var(--yellow);
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+    }
+    .navbar-nav .nav-link:hover::after {
+      width: 100%;
+    }
 
     /* ====== MAIN CONTENT ====== */
-    .main-content {flex:1; display:flex; align-items:center; justify-content:center; padding:2rem 1rem; min-height:calc(100vh - 200px);}
-    .register-container {background: rgba(255,255,255,0.95); backdrop-filter:blur(10px); border-radius:20px; padding:3rem; box-shadow:0 20px 40px rgba(0,0,0,0.1); width:100%; max-width:700px; border:1px solid rgba(255,255,255,0.2); animation:slideUp 0.6s ease-out;}
-    @keyframes slideUp {from{opacity:0; transform:translateY(30px);} to{opacity:1; transform:translateY(0);}}
-    .register-header {text-align:center; margin-bottom:2rem;}
-    .register-header h1 {color: var(--red); font-weight:800; font-size:2.2rem; margin-bottom:0.5rem;}
-    .register-header p {color:#666; font-weight:400; font-size:1rem;}
-    .welcome-icon {width:80px; height:80px; background: var(--gradient); border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 1.5rem; box-shadow:0 10px 30px rgba(239,191,106,0.3);}
-    .welcome-icon i {font-size:2rem; color:var(--red);}
+    .main-content {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1rem;
+      min-height: calc(100vh - 200px);
+    }
+    .register-container {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 3rem;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 700px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      animation: slideUp 0.6s ease-out;
+    }
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .register-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .register-header h1 {
+      color: var(--red);
+      font-weight: 800;
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+    }
+    .register-header p {
+      color: #666;
+      font-weight: 400;
+      font-size: 1rem;
+    }
+    .welcome-icon {
+      width: 80px;
+      height: 80px;
+      background: var(--gradient);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      box-shadow: 0 10px 30px rgba(239, 191, 106, 0.3);
+    }
+    .welcome-icon i {
+      font-size: 2rem;
+      color: var(--red);
+    }
 
     /* ====== FORM STYLES ====== */
-    .form-group {margin-bottom:1.5rem; position:relative;}
-    .form-label {color:var(--red); font-weight:600; margin-bottom:0.5rem; display:flex; align-items:center; font-size:0.9rem;}
-    .form-label i {margin-right:0.5rem; width:16px;}
-    .form-control, .form-select {border:2px solid #e0e0e0; border-radius:12px; padding:0.8rem 1rem; font-size:1rem; transition: all 0.3s ease; background:rgba(255,255,255,0.8);}
-    .form-control:focus, .form-select:focus {border-color: var(--yellow); box-shadow:0 0 0 0.2rem rgba(239,191,106,0.25); background:white; transform:translateY(-1px);}
-    .password-container {position:relative;}
-    .password-toggle {position:absolute; right:12px; top:50%; transform:translateY(-50%); background:none; border:none; color:#666; cursor:pointer; padding:0.5rem; transition:color 0.3s ease;}
-    .password-toggle:hover {color:var(--red);}
-    .form-check {display:flex; align-items:center; margin-bottom:1rem;}
-    .form-check-input {margin-right:0.5rem; border:2px solid #e0e0e0; border-radius:4px;}
-    .form-check-input:checked {background-color:var(--red); border-color:var(--red);}
-    .form-check-label {color:#666; font-size:0.9rem; font-weight:500;}
-    .form-check-label a {color:var(--red); text-decoration:none; font-weight:600;}
-    .form-check-label a:hover {color:var(--dark-red); text-decoration:underline;}
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    .form-label {
+      color: var(--red);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      font-size: 0.95rem;
+    }
+    .form-label i {
+      width: 20px;
+      text-align: center;
+      margin-right: 8px;
+      font-size: 0.9rem;
+    }
+    .form-control, .form-select {
+      border: 2px solid #e0e0e0;
+      border-radius: 12px;
+      padding: 0.75rem 1rem;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      background: rgba(255, 255, 255, 0.8);
+    }
+    .form-control:focus, .form-select:focus {
+      border-color: var(--yellow);
+      box-shadow: 0 0 0 0.2rem rgba(239, 191, 106, 0.25);
+      background: white;
+      transform: translateY(-1px);
+    }
+    .password-container {
+      position: relative;
+    }
+    .password-container .form-control {
+      padding-right: 40px;
+    }
+    .password-toggle {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: #888;
+      cursor: pointer;
+      padding: 0.25rem;
+    }
+    .password-toggle:hover {
+      color: var(--red);
+    }
+    .form-check {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      margin: 1.25rem 0;
+    }
+    .form-check-input {
+      margin-top: 0.3rem;
+      width: 18px;
+      height: 18px;
+      border: 2px solid #ccc;
+      border-radius: 4px;
+    }
+    .form-check-input:checked {
+      background-color: var(--red);
+      border-color: var(--red);
+    }
+    .form-check-label {
+      color: #555;
+      font-size: 0.95rem;
+      line-height: 1.4;
+    }
+    .form-check-label a {
+      color: var(--red);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .form-check-label a:hover {
+      text-decoration: underline;
+    }
 
     /* ====== BUTTONS ====== */
-    .btn-register {background: linear-gradient(135deg, var(--red) 0%, var(--dark-red) 100%); color:white; font-weight:700; border-radius:12px; padding:0.8rem 2rem; border:none; width:100%; font-size:1.1rem; transition:all 0.3s ease; margin-bottom:1.5rem; position:relative; overflow:hidden;}
-    .btn-register::before {content:''; position:absolute; top:0; left:-100%; width:100%; height:100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent); transition:left 0.5s;}
-    .btn-register:hover::before {left:100%;}
-    .btn-register:hover {transform:translateY(-2px); box-shadow:0 8px 25px rgba(142,32,32,0.3);}
-    .btn-register:disabled {opacity:0.7; cursor:not-allowed;}
-    .login-link {text-align:center; margin-top:1.5rem; padding-top:1.5rem; border-top:1px solid #e0e0e0;}
-    .login-link a {color:var(--red); text-decoration:none; font-weight:600; transition:all 0.3s ease;}
-    .login-link a:hover {color:var(--dark-red); text-decoration:underline;}
-
-    /* ====== FOOTER ====== */
-/* ====== RODAPÉ ====== */
-.footer {
-  background-color: var(--red);
-  color: #fff;
-  padding: 0;
-  margin-top: 2rem;
-  position: relative;
-  overflow: hidden;
-}
-
-.footer-content {
-  padding: 3rem 1.5rem;
-}
-
-.footer-divider-thin {
-  height: 2px;
-  background: linear-gradient(to right, transparent, var(--yellow), transparent);
-  margin: 2rem 0;
-}
-
-.footer-brand {
-  font-weight: 800;
-  font-size: 1.6rem;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.footer-brand i {
-  font-size: 1.5rem;
-}
-
-.footer-slogan {
-  font-style: italic;
-  color: #ffd54f;
-  font-size: 1rem;
-  line-height: 1.5;
-  margin-top: 0.5rem;
-}
-
-/* ====== LINKS COMO BOTÕES ====== */
-.footer-action {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 1.5rem;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 16px;
-  transition: transform 0.3s ease, background 0.3s ease;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  text-decoration: none; /* remove sublinhado do link */
-  cursor: pointer;
-}
-
-.footer-action:hover {
-  transform: translateY(-5px);
-  background: rgba(255, 255, 255, 0.15);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-}
-
-.icon-circle {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 1rem;
-  color: #fff;
-  font-size: 1.3rem;
-  background: var(--yellow);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-}
-
-.footer-action h5 {
-  font-weight: 700;
-  color: #fff;
-  margin: 0.5rem 0 0.3rem;
-  font-size: 1.2rem;
-  text-align: center;
-}
-
-.footer-action p {
-  color: #ffd54f;
-  font-size: 0.95rem;
-  margin: 0;
-  font-weight: 500;
-  text-align: center;
-}
-
-/* ====== REDES SOCIAIS ====== */
-.social-icon {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background: var(--yellow);
-  color: var(--red);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.3rem;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  margin: 0 8px;
-}
-
-.social-icon:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-}
-
-.copyright {
-  margin-top: 2rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 0.9rem;
-}
-
-/* ====== RESPONSIVO ====== */
-@media (max-width: 768px) {
-  .footer .row {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .footer-action {
-    margin-bottom: 1.5rem;
-  }
-}
-
-
-    /* ====== RESPONSIVE ====== */
-    @media (max-width:768px){.register-container{padding:2rem; margin:1rem; border-radius:15px;} .register-header h1{font-size:1.8rem;} .welcome-icon{width:60px;height:60px;} .welcome-icon i{font-size:1.5rem;} .navbar-brand{font-size:1.5rem;}}
-    @media (max-width:576px){.register-container{padding:1.5rem;} .register-header h1{font-size:1.6rem;} .btn-register{padding:0.7rem 1.5rem; font-size:1rem;}}
-    /* ====== BOTÕES PERSONALIZADOS ====== */
-    .btn-custom-navbar,
-    .btn-custom {
-      background: var(--gradient);
-      color: var(--red);
+    .btn-register {
+      background: linear-gradient(135deg, var(--red) 0%, var(--dark-red) 100%);
+      color: white;
       font-weight: 700;
-      border-radius: 50px; /* totalmente arredondado */
-      padding: 0.6rem 1.5rem;
+      border-radius: 12px;
+      padding: 0.85rem;
       border: none;
+      width: 100%;
+      font-size: 1.1rem;
       transition: all 0.3s ease;
-      box-shadow: 0 4px 12px rgba(239, 191, 106, 0.3);
+      margin: 1.5rem 0;
       position: relative;
       overflow: hidden;
     }
-
-    .btn-custom-navbar::after,
-    .btn-custom::after {
-      content: "";
+    .btn-register::before {
+      content: '';
       position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: rgba(255, 255, 255, 0.3);
-      transform: rotate(45deg);
-      transition: all 0.5s ease;
-      opacity: 0;
-      pointer-events: none;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.5s;
     }
-
-    .btn-custom-navbar:hover,
-    .btn-custom:hover {
-      color: var(--red);
+    .btn-register:hover::before {
+      left: 100%;
+    }
+    .btn-register:hover {
       transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(239, 191, 106, 0.6);
+      box-shadow: 0 8px 25px rgba(142, 32, 32, 0.3);
     }
 
-    .btn-custom-navbar:hover::after,
-    .btn-custom:hover::after {
-      opacity: 1;
-      top: -25%;
-      left: -25%;
+    .login-link {
+      text-align: center;
+      margin-top: 1rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid #eee;
+    }
+    .login-link a {
+      color: var(--red);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .login-link a:hover {
+      text-decoration: underline;
     }
 
+    /* ====== MENSAGENS DE ERRO ====== */
+    .alert {
+      border-radius: 12px;
+      margin-bottom: 1.5rem;
+    }
+    .errorlist {
+      list-style: none;
+      padding: 0;
+      margin: 0.4rem 0;
+    }
+    .errorlist li {
+      color: #dc3545;
+      font-size: 0.875rem;
+    }
+    .form-control.is-invalid, .form-select.is-invalid {
+      border-color: #dc3545;
+    }
+
+    /* ====== FOOTER ====== */
+    .footer {
+      background-color: var(--red);
+      color: #fff;
+      padding: 0;
+      margin-top: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .footer-content {
+      padding: 3rem 1.5rem;
+    }
+    .footer-divider-thin {
+      height: 2px;
+      background: linear-gradient(to right, transparent, var(--yellow), transparent);
+      margin: 2rem 0;
+    }
+    .footer-brand {
+      font-weight: 800;
+      font-size: 1.6rem;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .footer-brand i {
+      font-size: 1.5rem;
+    }
+    .footer-slogan {
+      font-style: italic;
+      color: #ffd54f;
+      font-size: 1rem;
+      line-height: 1.5;
+      margin-top: 0.5rem;
+    }
+    .footer-action {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 1.5rem;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      transition: transform 0.3s ease, background 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .footer-action:hover {
+      transform: translateY(-5px);
+      background: rgba(255, 255, 255, 0.15);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+    .icon-circle {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+      color: #fff;
+      font-size: 1.3rem;
+      background: var(--yellow);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+    .footer-action h5 {
+      font-weight: 700;
+      color: #fff;
+      margin: 0.5rem 0 0.3rem;
+      font-size: 1.2rem;
+      text-align: center;
+    }
+    .footer-action p {
+      color: #ffd54f;
+      font-size: 0.95rem;
+      margin: 0;
+      font-weight: 500;
+      text-align: center;
+    }
+    .social-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: var(--yellow);
+      color: var(--red);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      margin: 0 8px;
+    }
+    .social-icon:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    }
+    .copyright {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.9rem;
+    }
+
+    /* ====== RESPONSIVE ====== */
+    @media (max-width: 768px) {
+      .register-container {
+        padding: 2rem;
+        margin: 1rem;
+        border-radius: 15px;
+      }
+      .register-header h1 {
+        font-size: 1.8rem;
+      }
+      .welcome-icon {
+        width: 60px;
+        height: 60px;
+      }
+      .welcome-icon i {
+        font-size: 1.5rem;
+      }
+    }
+    @media (max-width: 576px) {
+      .register-container {
+        padding: 1.5rem;
+      }
+      .register-header h1 {
+        font-size: 1.6rem;
+      }
+      .btn-register {
+        padding: 0.75rem;
+        font-size: 1rem;
+      }
+    }
   </style>
 </head>
 
 <body>
+  <main>
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg" style="background-color: #8B1C1C;">
     <div class="container">
-      <a class="navbar-brand text-white fw-bold" href="/">
+      <a class="navbar-brand text-white fw-bold" href="{% url 'index' %}">
         <img src="{% static 'fotos/pata.png' %}" alt="Cãopanheiro" style="height: 40px;" class="me-2">
         CÃOPANHEIRO
       </a>
@@ -291,6 +458,7 @@
       </div>
     </div>
   </nav>
+
   <!-- Main Content -->
   <main class="main-content">
     <div class="register-container">
@@ -299,69 +467,200 @@
         <h1>CADASTRO</h1>
         <p>Junte-se à nossa comunidade e ajude a transformar vidas</p>
       </div>
-      <form id="registrationForm">
-        <!-- [Campos do formulário já configurados como enviados] -->
-      </form>
-    </div>
-  </main>
 
-    <!-- ====== FOOTER ====== -->
-    <footer class="footer">
-      <div class="footer-content">
-        <div class="container">
-          <div class="footer-divider-thin"></div>
-          <div class="row align-items-center">
-            <!-- Logo e slogan -->
-            <div class="col-md-4 text-center text-md-start mb-4 mb-md-0">
-              <div class="footer-brand">
-                <i class="fas fa-paw"></i>
-                <span>CÃOPANHEIRO</span>
-              </div>
-              <p class="footer-slogan">
-                “Adotar é um ato de amor, dê uma nova chance, transforme uma vida.”
-              </p>
+      <!-- Mensagens do Django -->
+      {% if messages %}
+        {% for message in messages %}
+          <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+          </div>
+        {% endfor %}
+      {% endif %}
+
+      <!-- Formulário com campos do Django -->
+      <form method="post" id="registrationForm">
+        {% csrf_token %}
+      
+        <!-- Informações Pessoais -->
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="form-label" for="{{ form.nome.id_for_label }}">
+                <i class="fas fa-user"></i> {{ form.nome.label }}
+              </label>
+              {{ form.nome }}
+              {{ form.nome.errors }}
             </div>
-
-<!-- Coluna: ADOTE -->
-<div class="col-md-4 text-center mb-4 mb-md-0">
-  <a href="{% url 'index' %}#cachorros" class="footer-action text-decoration-none" role="button"
-    tabindex="0" aria-label="Ir para adote">
-    <div class="icon-circle">
-      <i class="fas fa-heart"></i>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="form-label" for="{{ form.email.id_for_label }}">
+                <i class="fas fa-envelope"></i> {{ form.email.label }}
+              </label>
+              {{ form.email }}
+              {{ form.email.errors }}
+            </div>
+          </div>
+        </div>
+      
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="form-label" for="{{ form.telefone.id_for_label }}">
+                <i class="fas fa-phone"></i> {{ form.telefone.label }}
+              </label>
+              {{ form.telefone }}
+              {{ form.telefone.errors }}
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="form-label" for="{{ form.idade.id_for_label }}">
+                <i class="fas fa-birthday-cake"></i> {{ form.idade.label }}
+              </label>
+              {{ form.idade }}
+              {{ form.idade.errors }}
+            </div>
+          </div>
+        </div>
+      
+        <!-- Endereço -->
+        <div class="row">
+          <div class="col-md-8">
+            <div class="form-group">
+              <label class="form-label" for="{{ form.endereco.id_for_label }}">
+                <i class="fas fa-home"></i> {{ form.endereco.label }}
+              </label>
+              {{ form.endereco }}
+              {{ form.endereco.errors }}
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label class="form-label" for="{{ form.cidade.id_for_label }}">
+                <i class="fas fa-city"></i> {{ form.cidade.label }}
+              </label>
+              {{ form.cidade }}
+              {{ form.cidade.errors }}
+            </div>
+          </div>
+        </div>
+      
+        <!-- Senhas -->
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="form-label" for="{{ form.senha.id_for_label }}">
+                <i class="fas fa-lock"></i> {{ form.senha.label }}
+              </label>
+              <div class="password-container">
+                {{ form.senha }}
+                <button type="button" class="password-toggle" onclick="togglePassword('{{ form.senha.id_for_label }}')">
+                  <i class="fas fa-eye" id="{{ form.senha.id_for_label }}-eye"></i>
+                </button>
+              </div>
+              {{ form.senha.errors }}
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="form-label" for="id_confirmar_senha">
+                <i class="fas fa-lock"></i> Confirmar Senha
+              </label>
+              <div class="password-container">
+                {{ form.confirmar_senha }}
+                <button type="button" class="password-toggle" onclick="togglePassword('id_confirmar_senha')">
+                  <i class="fas fa-eye" id="id_confirmar_senha-eye"></i>
+                </button>
+              </div>
+              {% if form.confirmar_senha.errors %}
+                <ul class="errorlist">
+                  {% for error in form.confirmar_senha.errors %}
+                    <li>{{ error }}</li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      
+        <!-- Preferências -->
+        <div class="form-check">
+          {{ form.newsletter }}
+          <label class="form-check-label" for="{{ form.newsletter.id_for_label }}">
+            {{ form.newsletter.label }}
+          </label>
+        </div>
+      
+        <div class="form-check">
+          {{ form.termos_aceitos }}
+          <label class="form-check-label" for="{{ form.termos_aceitos.id_for_label }}">
+            {{ form.termos_aceitos.label|safe }}
+          </label>
+          {{ form.termos_aceitos.errors }}
+        </div>
+      
+        <button type="submit" class="btn-register">
+          <i class="fas fa-user-plus me-2"></i>CRIAR CONTA
+        </button>
+      
+        <div class="login-link">
+          <p>Já tem uma conta? <a href="{% url 'login' %}">Faça login aqui</a></p>
+        </div>
+      </form>
+</main>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="container">
+        <div class="footer-divider-thin"></div>
+        <div class="row align-items-center">
+          <div class="col-md-4 text-center text-md-start mb-4 mb-md-0">
+            <div class="footer-brand">
+              <i class="fas fa-paw"></i>
+              <span>CÃOPANHEIRO</span>
+            </div>
+            <p class="footer-slogan">
+              “Adotar é um ato de amor, dê uma nova chance, transforme uma vida.”
+            </p>
+          </div>
+          <div class="col-md-4 text-center mb-4 mb-md-0">
+            <a href="{% url 'index' %}#cachorros" class="footer-action text-decoration-none">
+              <div class="icon-circle">
+                <i class="fas fa-heart"></i>
+              </div>
+              <h5>ADOTE</h5>
+              <p>Adote com responsabilidade</p>
+            </a>
+          </div>
+          <div class="col-md-4 text-center">
+            <a href="{% url 'index' %}#doar" class="footer-action text-decoration-none">
+              <div class="icon-circle">
+                <i class="fas fa-hand-holding-heart"></i>
+              </div>
+              <h5>COLABORE</h5>
+              <p>Doe qualquer valor</p>
+            </a>
+          </div>
+          <div class="text-center mt-4">
+            <div class="d-flex justify-content-center gap-3">
+              <a href="#" class="social-icon" aria-label="Facebook">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="#" class="social-icon" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+              </a>
+            </div>
+            <p class="copyright">
+              © 2025 Cãopanheiro. Todos os direitos reservados. Juntos por um mundo melhor para os animais.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
-    <h5>ADOTE</h5>
-    <p>Adote com responsabilidade</p>
-  </a>
-</div>
+  </footer>
 
-<!-- Coluna: COLABORE -->
-<div class="col-md-4 text-center">
-  <a href="{% url 'index' %}#doar" class="footer-action text-decoration-none" role="button" tabindex="0"
-    aria-label="Ir para doações">
-    <div class="icon-circle">
-      <i class="fas fa-hand-holding-heart"></i>
-    </div>
-    <h5>COLABORE</h5>
-    <p>Doe qualquer valor</p>
-  </a>
-</div>
- <!-- Redes sociais -->
- <div class="text-center mt-4">
-  <div class="d-flex justify-content-center gap-3">
-    <a href="#" class="social-icon" aria-label="Facebook">
-      <i class="fab fa-facebook-f"></i>
-    </a>
-    <a href="#" class="social-icon" aria-label="Instagram">
-      <i class="fab fa-instagram"></i>
-    </a>
-  </div>
-  <p class="copyright">
-    © 2025 Cãopanheiro. Todos os direitos reservados. Juntos por um mundo melhor para os animais.
-  </p>
-</div>
-</div>
-</div>
-    </footer>
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
@@ -370,45 +669,50 @@
     function togglePassword(fieldId) {
       const field = document.getElementById(fieldId);
       const eye = document.getElementById(fieldId + '-eye');
-      if (field.type === 'password') {field.type='text'; eye.classList.replace('fa-eye','fa-eye-slash');} 
-      else {field.type='password'; eye.classList.replace('fa-eye-slash','fa-eye');}
+      if (field.type === 'password') {
+        field.type = 'text';
+        eye.classList.replace('fa-eye', 'fa-eye-slash');
+      } else {
+        field.type = 'password';
+        eye.classList.replace('fa-eye-slash', 'fa-eye');
+      }
     }
 
-    document.getElementById('phone').addEventListener('input', function(e){
-      let v = e.target.value.replace(/\D/g,'');
-      if(v.length<=11){v=v.replace(/(\d{2})(\d{5})(\d{4})/,'($1) $2-$3');}
-      e.target.value=v;
-    });
-
-    document.getElementById('registrationForm').addEventListener('submit', async function(e){
-      e.preventDefault();
-      const formData = new FormData(this);
-      const password = formData.get('password');
-      const confirmPassword = formData.get('confirmPassword');
-      if(password!==confirmPassword){alert('As senhas não coincidem!'); return;}
-      if(password.length<6){alert('A senha deve ter pelo menos 6 caracteres!'); return;}
-      if(!formData.get('terms')){alert('Você deve aceitar os termos!'); return;}
-      const userData = Object.fromEntries(formData.entries());
-      userData.newsletter = formData.get('newsletter')==='on';
-      userData.createdAt = new Date().toISOString();
-      const btn = this.querySelector('.btn-register');
-      btn.disabled=true; btn.innerHTML='<i class="fas fa-spinner fa-spin me-2"></i>CRIANDO CONTA...';
-      try{
-        const res = await fetch('http://localhost:3000/users',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(userData)});
-        if(!res.ok) throw new Error(`Erro: ${res.status}`);
-        alert('Cadastro realizado com sucesso!');
-        this.reset(); btn.disabled=false; btn.innerHTML='<i class="fas fa-user-plus me-2"></i>CRIAR CONTA';
-      } catch(err){console.error(err); alert('Erro ao cadastrar!'); btn.disabled=false; btn.innerHTML='<i class="fas fa-user-plus me-2"></i>CRIAR CONTA';}
-    });
-
-    // Footer actions
-    document.addEventListener('DOMContentLoaded', function(){
-      document.querySelectorAll('.footer-action').forEach(action=>{
-        action.addEventListener('click', function(){
-          const t = action.dataset.target;
-          if(t.includes('#')){const [p,h]=t.split('#'); const s=document.getElementById(h); if(s) window.scrollTo({top:s.offsetTop-80, behavior:'smooth'});}
-          else {window.location.href=t+'.html';}
+    // Máscaras
+    document.addEventListener('DOMContentLoaded', function () {
+      // Telefone
+      const tel = document.getElementById('{{ form.telefone.id_for_label }}');
+      if (tel) {
+        tel.addEventListener('input', function (e) {
+          let v = e.target.value.replace(/\D/g, '');
+          if (v.length > 11) v = v.slice(0, 11);
+          if (v.length >= 10) {
+            v = v.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
+          } else if (v.length >= 6) {
+            v = v.replace(/(\d{2})(\d{4})(\d{0,4})/, '($1) $2-$3');
+          } else if (v.length >= 2) {
+            v = v.replace(/(\d{2})(\d{0,5})/, '($1) $2');
+          }
+          e.target.value = v;
         });
+      }
+
+      // CEP
+      const cep = document.getElementById('{{ form.cep.id_for_label }}');
+      if (cep) {
+        cep.addEventListener('input', function (e) {
+          let v = e.target.value.replace(/\D/g, '');
+          if (v.length > 8) v = v.slice(0, 8);
+          e.target.value = v;
+        });
+      }
+
+      // Adicionar classe de erro do Bootstrap
+      document.querySelectorAll('.errorlist').forEach(function (el) {
+        const input = el.previousElementSibling;
+        if (input && (input.classList.contains('form-control') || input.classList.contains('form-select'))) {
+          input.classList.add('is-invalid');
+        }
       });
     });
   </script>

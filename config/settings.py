@@ -50,6 +50,12 @@ TEMPLATES = [
     },
 ]
 
+# settings.py
+AUTH_USER_MODEL = 'CAOPANHEIRO-INFOH.Usuario'  # substitua 'app' pelo nome do seu app
+
+LOGIN_REDIRECT_URL = '/perfil/'   # após login, vai para o perfil
+LOGOUT_REDIRECT_URL = '/'         # após logout, volta para home
+
 WSGI_APPLICATION = 'config.wsgi.application'
 
 DATABASES = {
@@ -62,6 +68,7 @@ DATABASES = {
         'PORT': '5432',
     }
 }
+
 
 AUTH_PASSWORD_VALIDATORS = [
     {

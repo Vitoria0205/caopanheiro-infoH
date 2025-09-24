@@ -8,7 +8,7 @@
   <title>Cãopanheiro</title>
 
   <!-- Favicon -->
-  <link rel="icon" href="" type="image/png">
+  <link rel="icon" href="{% static 'fotos/pata.png' %}" type="image/png">
 
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -795,24 +795,23 @@
         <img src="{% static 'fotos/maria.jfif' %}" alt="Maria">
         <p>MARIA</p>
       </div>
-      <div class="dog-card" data-name="VERMELHINHO" data-size="pequeno" data-age="adulto"
-        data-breed="Shih Tzu misturado">
+      <div class="dog-card" data-name="VERMELHINHO" data-size="grande" data-age="adulto" data-breed="Vira-lata">
         <img src="{% static 'fotos/vermelhinho.jfif' %}" alt="Vermelhinho">
         <p>VERMELHINHO</p>
       </div>
-      <div class="dog-card" data-name="GEOVANE" data-size="grande" data-age="adulto" data-breed="Labrador Retriever">
+      <div class="dog-card" data-name="GEOVANE" data-size="grande" data-age="idoso" data-breed="Vira-lata">
         <img src="{% static 'fotos/geovane.jfif' %}" alt="Geovane">
         <p>GEOVANE</p>
       </div>
-      <div class="dog-card" data-name="LUCAS" data-size="pequeno" data-age="adulto" data-breed="Poodle Toy">
+      <div class="dog-card" data-name="LUCAS" data-size="medio" data-age="adulto" data-breed="Vira-lata">
         <img src="{% static 'fotos/lucas.jfif' %}" alt="Lucas">
         <p>LUCAS</p>
       </div>
-      <div class="dog-card" data-name="JORGE" data-size="grande" data-age="adulto" data-breed="Pastor Alemão">
+      <div class="dog-card" data-name="JORGE" data-size="medio" data-age="idoso" data-breed="Vira-lata">
         <img src="{% static 'fotos/jorge.jfif' %}" alt="Jorge">
         <p>JORGE</p>
       </div>
-      <div class="dog-card" data-name="MALUQUINHO" data-size="medio" data-age="filhote" data-breed="Mestiço ativo">
+      <div class="dog-card" data-name="MALUQUINHO" data-size="grande" data-age="idoso" data-breed="Vira-lata">
         <img src="{% static 'fotos/louquinha.jfif' %}" alt="Maluquinho">
         <p>MALUQUINHO</p>
       </div>
@@ -970,12 +969,12 @@
       const modalStory = document.getElementById('modalStory');
 
       const dogStories = {
-        "MARIA": "Maria foi encontrada sozinha em um lixão. Tem medo de homens, mas ama crianças e é extremamente fiel. Está em tratamento de ansiedade e precisa de um lar amoroso.",
-        "VERMELHINHO": "Vermelhinho tem um pelo encantador e um coração ainda mais bonito. Foi abandonado por causa de sua pelagem roubada pela natureza. Ele adora correr no jardim e dormir no colo.",
-        "GEOVANE": "Geovane é um gigante gentil. Foi resgatado de maus-tratos e agora só quer um lugar para ser amado. Gosta de brincar com bolas e adora passeios.",
-        "LUCAS": "Lucas é um cãozinho inteligente e carinhoso. Sofreu abandono e perdeu parte da audição, mas aprendeu a entender gestos e olhares. Precisa de um lar calmo e paciente.",
-        "JORGE": "Jorge é um guardião nato. Foi encontrado em uma fazenda, protegendo outros animais. Ele é tranquilo, obediente e ama crianças. Busca um lar definitivo.",
-        "MALUQUINHO": "Maluquinho é pura energia! Brinca o dia inteiro, adora pular e fazer travessuras. É super sociável e se dá bem com outros pets. Perfeito para famílias ativas!"
+        "MARIA": "Maria é uma cachorrinha bem pequena e um pouco nervosinha no começo. Apesar disso, é extremamente fiel e se apega profundamente a quem conquista sua confiança.",
+        "VERMELHINHO": "Vermelhinho é um cãozinho especial! Ele pode ser meio nervosinho no começo, mas com quem já conhece se transforma em um verdadeiro amor. Adora correr pelo jardim e, quando se sente seguro, não dispensa um bom carinho e companhia..",
+        "GEOVANE": "Geovane é um gigante gentil e muito especial. Já é um cãozinho bem velhinho, que ama comer e dormir. Adora passeios tranquilos e receber carinho, mas o que ele mais quer é um cantinho quentinho para se sentir amado.",
+        "LUCAS": "Lucas é um cachorro cheio de energia e alegria! Adora correr atrás das motos e se esfregar na grama ou nas pessoas, mostrando todo o seu carinho. Quem convive com ele logo percebe que é impossível não se apaixonar por essa bagunça de fofura!",
+        "JORGE": "Jorge é um guardião nato! Ele vive na guarita do campus, sempre atento a tudo ao seu redor. Tranquilo, obediente e amigo de todos, ele adora fazer companhia e está em busca de um lar definitivo cheio de carinho.",
+        "MALUQUINHO": "Maluquinho é realmente meio doidinho! Está sempre com a linguinha pra fora, cheio de energia e atrás de tudo que pode comer. Brinca sem parar, adora fazer travessuras e se dá bem com outros pets. Um verdadeiro maluco encantador!"
       };
 
       dogCards.forEach(card => {

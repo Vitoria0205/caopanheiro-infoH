@@ -15,14 +15,24 @@ class Cidade(models.Model):
         verbose_name_plural = "Cidades"
 
 
+# app/models.py
+from django.db import models
+
 class Pessoa(models.Model):
     nome = models.CharField(max_length=100, verbose_name="Nome da pessoa")
     idade = models.PositiveIntegerField(verbose_name="Idade")
     email = models.EmailField(unique=True, verbose_name="Email")
     telefone = models.CharField(max_length=15, verbose_name="Telefone")
     endereco = models.TextField(verbose_name="Endereço")
-    cidade = models.ForeignKey(Cidade, on_delete=models.CASCADE, verbose_name="Cidade")
-    senha = models.CharField(max_length=128, verbose_name="Senha")  # Em produção, use Django User ou hash
+    cidade = models.CharField(max_length=100, verbose_name="Cidade")  # <-- ALTERADO: agora é CharField
+    senha = models.CharField(max_length=128, verbose_name="Senha")
+
+    def __str__(self):
+        return self.nome
+
+    class Meta:
+        verbose_name = "Pessoa"
+        verbose_name_plural = "Pessoas"
 
     def __str__(self):
         return self.nome
@@ -145,5 +155,24 @@ class Historia(models.Model):
         verbose_name = "História"
         verbose_name_plural = "Histórias"
 
-class CustomUser(AbstractUser):
-    phone = models.CharField(max_length=15, blank=True, null=True)
+
+class Usuario(AbstractUser):
+    # Campos extras além do User padrão
+    idade = models.PositiveIntegerField(null=True, blank=True, verbose_name="Idade")
+    telefone = models.CharField(max_length=15, blank=True, verbose_name="Telefone")
+    endereco = models.TextField(blank=True, verbose_name="Endereço")
+    cidade = models.CharField(max_length=100, blank=True, verbose_name="Cidade")
+    newsletter = models.BooleanField(default=False, verbose_name="Newsletter")
+
+    # O Django já tem: username, email, first_name, last_name, password, etc.
+    # Vamos usar email como login principal
+    EMAIL_FIELD = 'email'
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = ['username']  # ou remova se quiser só email
+
+    def __str__(self):
+        return self.email
+
+    class Meta:
+        verbose_name = "Usuário"
+        verbose_name_plural = "Usuários"
