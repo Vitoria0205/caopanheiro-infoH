@@ -53,7 +53,7 @@ TEMPLATES = [
 # settings.py
 AUTH_USER_MODEL = 'app.Usuario'  # substitua 'app' pelo nome do seu app
 
-LOGIN_REDIRECT_URL = '/perfil/'   # após login, vai para o perfil
+LOGIN_REDIRECT_URL = '/admin/'    # 🚀 após login, vai para o admin
 LOGOUT_REDIRECT_URL = '/'         # após logout, volta para home
 
 WSGI_APPLICATION = 'config.wsgi.application'
