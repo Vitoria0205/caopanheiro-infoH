@@ -3,7 +3,7 @@ from django.contrib import admin
 from django.urls import path
 from app.views import (
     IndexView, HistoriaView, LocalizacaoView,
-    cadastro_view, login_view, logout_view
+    cadastro_view, login_view, logout_view, PerfilView
 )
 from app.admin_shortcut import admin_shortcut, admin_info
 
@@ -15,7 +15,7 @@ urlpatterns = [
     path('login/', login_view, name='login'),
     path('logout/', logout_view, name='logout'),  # ✅ Adicionado
     path('cadastro/', cadastro_view, name='cadastro'),
-    
+    path('perfil/', PerfilView.as_view(), name='perfil'),  # ✅ Adicionada rota de perfil
     # 🚀 Atalhos de admin (opcional)
     path('admin-info/', admin_info, name='admin_info'),
     path('admin-acesso/', admin_shortcut, name='admin_shortcut'),

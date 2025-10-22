@@ -1,14 +1,15 @@
 import os
 from pathlib import Path
 
+# ====== BASE DIR ======
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# ====== SECURITY ======
 SECRET_KEY = 'django-insecure-8l8o(-2su$6t%k424293i#x672q0$*^itfyi9r32$8j-igo7zf'
-
 DEBUG = True
-
 ALLOWED_HOSTS = []
 
+# ====== INSTALLED APPS ======
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -16,10 +17,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'app',
+    'app',  # Seu app principal
 ]
 
-# o template usado
+# ====== MIDDLEWARE ======
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -30,19 +31,20 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+# ====== URLS & WSGI ======
 ROOT_URLCONF = 'config.urls'
+WSGI_APPLICATION = 'config.wsgi.application'
 
+# ====== TEMPLATES ======
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [
-            os.path.join(BASE_DIR, 'app/templates'),
-        ],
+        'DIRS': [os.path.join(BASE_DIR, 'app/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
-                'django.template.context_processors.request',
+                'django.template.context_processors.request',  # importante para login
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
@@ -50,14 +52,7 @@ TEMPLATES = [
     },
 ]
 
-# settings.py
-AUTH_USER_MODEL = 'app.Usuario'  # substitua 'app' pelo nome do seu app
-
-LOGIN_REDIRECT_URL = '/admin/'    # 🚀 após login, vai para o admin
-LOGOUT_REDIRECT_URL = '/'         # após logout, volta para home
-
-WSGI_APPLICATION = 'config.wsgi.application'
-
+# ====== DATABASE ======
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -69,35 +64,27 @@ DATABASES = {
     }
 }
 
-
+# ====== AUTH ======
+AUTH_USER_MODEL = 'app.Usuario'  # indica que você usa o modelo customizado
+LOGIN_REDIRECT_URL = '/'          # após login, redireciona para home (ou altere para 'perfil')
+LOGOUT_REDIRECT_URL = '/'         # após logout, redireciona para home
 AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
+    {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',},
+    {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',},
+    {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',},
+    {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',},
 ]
 
+# ====== INTERNATIONALIZATION ======
 LANGUAGE_CODE = 'pt-br'
-
 TIME_ZONE = 'America/Sao_Paulo'
-
 USE_I18N = True
-
 USE_TZ = True
 
-STATIC_URL = 'static/'
+# ====== STATIC FILES ======
+STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "app/static/")]
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "app/static/"),
-]
-
+# ====== DEFAULT AUTO FIELD ======
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
