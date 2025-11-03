@@ -66,7 +66,7 @@ DATABASES = {
 
 # ====== AUTH ======
 AUTH_USER_MODEL = 'app.Usuario'  # indica que você usa o modelo customizado
-LOGIN_REDIRECT_URL = '/'          # após login, redireciona para home (ou altere para 'perfil')
+LOGIN_URL = '/login/'        # após login, redireciona para home (ou altere para 'perfil')
 LOGOUT_REDIRECT_URL = '/'         # após logout, redireciona para home
 AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',},
