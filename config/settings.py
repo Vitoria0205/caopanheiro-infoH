@@ -39,12 +39,12 @@ WSGI_APPLICATION = 'config.wsgi.application'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'app/templates')],
+        'DIRS': [BASE_DIR / 'app' / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
-                'django.template.context_processors.request',  # importante para login
+                'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
@@ -65,14 +65,14 @@ DATABASES = {
 }
 
 # ====== AUTH ======
-AUTH_USER_MODEL = 'app.Usuario'  # indica que você usa o modelo customizado
-LOGIN_URL = '/login/'        # após login, redireciona para home (ou altere para 'perfil')
-LOGOUT_REDIRECT_URL = '/'         # após logout, redireciona para home
+AUTH_USER_MODEL = 'app.Usuario'
+LOGIN_URL = '/login/'
+LOGOUT_REDIRECT_URL = '/'
 AUTH_PASSWORD_VALIDATORS = [
-    {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',},
-    {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',},
-    {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',},
-    {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',},
+    {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
 ]
 
 # ====== INTERNATIONALIZATION ======
@@ -83,8 +83,12 @@ USE_TZ = True
 
 # ====== STATIC FILES ======
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
-STATICFILES_DIRS = [os.path.join(BASE_DIR, "app/static/")]
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATICFILES_DIRS = [BASE_DIR / 'app' / 'static']
+
+# ====== MEDIA FILES ======
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 # ====== DEFAULT AUTO FIELD ======
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
